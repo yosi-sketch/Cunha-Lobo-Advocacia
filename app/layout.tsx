@@ -17,18 +17,32 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "SG Advocacia | Consultoria e Assessoria em Belo Horizonte",
+  applicationName: "Victor Campos Advocacia",
+  title: "Victor Campos Advocacia | Defesa Criminal em Barbacena",
   description:
-    "Atendimento jurídico próximo em Belo Horizonte e on-line. Conheça a SG Advocacia, suas áreas de atuação e formas de contato.",
+    "Defesa criminal e assessoria jurídica em Barbacena, com atendimento presencial e on-line, escuta cuidadosa e comunicação clara.",
   keywords: [
-    "SG Advocacia",
-    "advocacia em Belo Horizonte",
-    "advogada no Lindéia",
-    "direito de família",
-    "direito previdenciário",
-    "pensão por morte",
-    "orientação jurídica",
+    "Victor Campos Advocacia",
+    "advogado criminal em Barbacena",
+    "defesa criminal em Barbacena",
+    "direito penal",
+    "processo penal",
+    "assessoria jurídica em Barbacena",
   ],
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    title: "Victor Campos Advocacia | Defesa Criminal em Barbacena",
+    description:
+      "Defesa criminal e assessoria jurídica em Barbacena, com atendimento presencial e on-line.",
+    siteName: "Victor Campos Advocacia e Assessoria Jurídica",
+  },
+  twitter: {
+    card: "summary",
+    title: "Victor Campos Advocacia | Defesa Criminal em Barbacena",
+    description:
+      "Defesa criminal e assessoria jurídica em Barbacena, com atendimento presencial e on-line.",
+  },
 };
 
 export default function RootLayout({

@@ -1,6 +1,6 @@
-# SG Advocacia
+# Victor Campos Advocacia
 
-Site institucional da SG Advocacia, escritório em Belo Horizonte com atendimento presencial e on-line.
+Site institucional de Victor Campos Advocacia e Assessoria Jurídica, com foco em defesa criminal e atendimento em Barbacena, Minas Gerais.
 
 ## Desenvolvimento
 
@@ -15,4 +15,4 @@ Abra http://localhost:3000 para visualizar o site.
 - Tailwind CSS 4
 - Framer Motion
 
-As imagens da marca ficam em public/sg-advocacia. Metadados e idioma são definidos em app/layout.tsx.
+As imagens da marca ficam em `public/victor-campos`. Metadados e idioma são definidos em `app/layout.tsx`.

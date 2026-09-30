@@ -2,33 +2,35 @@
 
 :root {
   color-scheme: light;
-  --brand-red: #c5162e;
-  --brand-red-dark: #9d1428;
-  --brand-red-deep: #310d15;
-  --brand-ink: #201d1d;
-  --brand-ink-soft: #716b69;
-  --brand-ivory: #faf7f3;
+  --brand-gold: #c49a48;
+  --brand-gold-dark: #80601f;
+  --brand-gold-deep: #4a3510;
+  --brand-ink: #1c1914;
+  --brand-ink-soft: #6e675b;
+  --brand-ivory: #f8f6f0;
   --brand-paper: #ffffff;
+  --brand-night: #0d0d0b;
 }
 
 @theme inline {
   --font-serif: var(--font-display), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  --color-ink: #201d1d;
-  --color-ink-soft: #716b69;
-  --color-ivory: #faf7f3;
-  --color-brand-50: #fcf0f1;
-  --color-brand-100: #f6dfe2;
-  --color-brand-200: #edc0c7;
-  --color-brand-300: #df929e;
-  --color-brand-400: #d26879;
-  --color-brand-500: #c5162e;
-  --color-brand-600: #ae142b;
-  --color-brand-700: #9d1428;
-  --color-brand-800: #77111f;
-  --color-brand-900: #500e19;
-  --color-brand-950: #310d15;
-  --shadow-card: 0 18px 48px rgba(38, 22, 22, 0.09);
+  --color-night: #0d0d0b;
+  --color-ink: #1c1914;
+  --color-ink-soft: #6e675b;
+  --color-ivory: #f8f6f0;
+  --color-brand-50: #fbf8ef;
+  --color-brand-100: #f4ebd4;
+  --color-brand-200: #ead8a9;
+  --color-brand-300: #dfc27b;
+  --color-brand-400: #d2ad59;
+  --color-brand-500: #c49a48;
+  --color-brand-600: #a98235;
+  --color-brand-700: #80601f;
+  --color-brand-800: #634916;
+  --color-brand-900: #46330f;
+  --color-brand-950: #281e0a;
+  --shadow-card: 0 18px 48px rgba(35, 29, 18, 0.12);
 }
 
 html {
@@ -43,7 +45,7 @@ body {
 }
 
 ::selection {
-  background: #9d1428;
+  background: #80601f;
   color: #fff;
 }
 
@@ -60,11 +62,11 @@ body {
 }
 
 .eyebrow {
-  color: #9d1428;
+  color: #80601f;
 }
 
 .eyebrow-light {
-  color: #f4c5cb;
+  color: #ead8a9;
 }
 
 .eyebrow::before,
@@ -79,7 +81,7 @@ body {
 .nav-link {
   position: relative;
   padding-block: 0.5rem;
-  color: #625b59;
+  color: rgb(255 255 255 / 72%);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -93,7 +95,7 @@ body {
   bottom: 0;
   left: 0;
   height: 1px;
-  background: #9d1428;
+  background: #dfc27b;
   content: "";
   transform: scaleX(0);
   transform-origin: left;
@@ -101,7 +103,7 @@ body {
 }
 
 .nav-link:hover {
-  color: #9d1428;
+  color: #ead8a9;
 }
 
 .nav-link:hover::after {
@@ -113,7 +115,7 @@ body {
 }
 
 .footer-link:hover {
-  color: #f4c5cb;
+  color: #ead8a9;
 }
 
 ::-webkit-scrollbar {
@@ -127,11 +129,11 @@ body {
 ::-webkit-scrollbar-thumb {
   border: 2px solid #eee9e4;
   border-radius: 999px;
-  background: #bd9297;
+  background: #c5b17f;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #9d1428;
+  background: #80601f;
 }
 
 @media (prefers-reduced-motion: reduce) {

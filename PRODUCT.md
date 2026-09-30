@@ -1,28 +1,27 @@
-# SG Advocacia
+# Victor Campos Advocacia e Assessoria Jurídica
 
 ## Plataforma
-Site institucional responsivo em Next.js, com navegação por seções, detalhes de áreas de atuação em modal e contato pelos canais informados.
+Site institucional responsivo em Next.js, com navegação por seções, detalhes de áreas de atuação em modal e contato pelo Instagram profissional.
 
 ## Público
-Pessoas que procuram orientação jurídica em Belo Horizonte ou atendimento on-line.
+Pessoas que procuram orientação e defesa criminal em Barbacena e região, com atendimento presencial ou on-line.
 
 ## Objetivo
-Apresentar a SG Advocacia, sua equipe, áreas de atuação, avaliações públicas e endereço; facilitar o acesso ao perfil do Instagram e à localização do escritório.
+Apresentar Victor Campos, suas frentes de atuação, avaliações públicas e endereço; facilitar o acesso ao perfil profissional do Instagram e à localização do escritório.
 
 ## Identidade
-- Nome: SG Advocacia — Consultoria e Assessoria.
-- Paleta extraída da marca: vermelho, preto e tons quentes de marfim.
+- Nome: Victor Campos Advocacia e Assessoria Jurídica.
+- Paleta extraída da marca: dourado, preto e tons quentes de marfim.
 - Tipografia: Cormorant Garamond nos títulos e Plus Jakarta Sans nos textos.
 - Tom: acolhedor, sóbrio, claro e informativo.
 
 ## Conteúdo e mídia
-- Retrato da Dra. Fernanda e fotografia da equipe fornecidos pelo cliente.
-- Materiais informativos sobre pensão por morte e violência doméstica.
-- Endereço informado: R. das Perpétuas, 475 - E, Lindéia, Belo Horizonte - MG, 30690-270.
-- Instagram indicado nos materiais: @sgadvs.
-- Nota apresentada pelo cliente: 5,0 no Google.
+- Retratos profissionais, imagem de atendimento e fotografia em ambiente de tribunal fornecidos pelo cliente.
+- Endereço: R. Gen. Antônio Carlos de Andrada Serpa, 307, sala 802, Urias Barbosa de Castro, Barbacena - MG, 36200-008.
+- Instagram: @victorcampos.adv.
+- Avaliações públicas do Google selecionadas para destacar respeito, atenção, ética e competência.
 
 ## Restrições técnicas
 - Next.js 16 App Router, React 19, Tailwind CSS 4 e Framer Motion.
-- Imagens otimizadas e servidas localmente.
+- Imagens locais servidas pelo otimizador do Next.js.
 - Navegação responsiva, animações com suporte à preferência por movimento reduzido e metadados de busca atualizados.
