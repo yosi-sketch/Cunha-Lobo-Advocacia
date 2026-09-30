@@ -1,6 +1,6 @@
-# Victor Campos Advocacia
+# Vinícius Bengtson Advocacia
 
-Site institucional de Victor Campos Advocacia e Assessoria Jurídica, com foco em defesa criminal e atendimento em Barbacena, Minas Gerais.
+Site institucional de Vinícius Bengtson, com atuação em Direito Penal e Processo Penal, sede em Poços de Caldas e atendimento remoto em todo o Brasil.
 
 ## Desenvolvimento
 
@@ -15,4 +15,4 @@ Abra http://localhost:3000 para visualizar o site.
 - Tailwind CSS 4
 - Framer Motion
 
-As imagens da marca ficam em `public/victor-campos`. Metadados e idioma são definidos em `app/layout.tsx`.
+Os materiais da marca ficam em `public/vinicius-bengtson`. Metadados e idioma são definidos em `app/layout.tsx`; as cores do tema Tailwind 4 estão em `app/globals.css`.

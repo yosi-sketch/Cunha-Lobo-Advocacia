@@ -17,31 +17,33 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  applicationName: "Victor Campos Advocacia",
-  title: "Victor Campos Advocacia | Defesa Criminal em Barbacena",
+  applicationName: "Vinícius Bengtson Advocacia",
+  title: "Vinícius Bengtson Advocacia | Direito Penal em Poços de Caldas",
   description:
-    "Defesa criminal e assessoria jurídica em Barbacena, com atendimento presencial e on-line, escuta cuidadosa e comunicação clara.",
+    "Atuação em Direito Penal e Processo Penal, com sede em Poços de Caldas e atendimento remoto em todo o Brasil.",
   keywords: [
-    "Victor Campos Advocacia",
-    "advogado criminal em Barbacena",
-    "defesa criminal em Barbacena",
+    "Vinícius Bengtson Advocacia",
+    "advogado criminal em Poços de Caldas",
+    "advocacia criminal em Poços de Caldas",
     "direito penal",
     "processo penal",
-    "assessoria jurídica em Barbacena",
+    "audiência de custódia",
+    "execução penal",
   ],
+  robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    title: "Victor Campos Advocacia | Defesa Criminal em Barbacena",
+    title: "Vinícius Bengtson Advocacia | Direito Penal",
     description:
-      "Defesa criminal e assessoria jurídica em Barbacena, com atendimento presencial e on-line.",
-    siteName: "Victor Campos Advocacia e Assessoria Jurídica",
+      "Atuação em Direito Penal e Processo Penal. Sede em Poços de Caldas, com atendimento remoto em todo o Brasil.",
+    siteName: "Vinícius Bengtson Advocacia",
   },
   twitter: {
     card: "summary",
-    title: "Victor Campos Advocacia | Defesa Criminal em Barbacena",
+    title: "Vinícius Bengtson Advocacia | Direito Penal",
     description:
-      "Defesa criminal e assessoria jurídica em Barbacena, com atendimento presencial e on-line.",
+      "Atuação em Direito Penal e Processo Penal, com sede em Poços de Caldas e atendimento remoto em todo o Brasil.",
   },
 };
 
