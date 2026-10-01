@@ -17,33 +17,35 @@ const bodyFont = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  applicationName: "Vinícius Bengtson Advocacia",
-  title: "Vinícius Bengtson Advocacia | Direito Penal em Poços de Caldas",
+  applicationName: "Advocacia Elder Martins Advogados Associados",
+  title: "Elder Martins Advogados Associados | Alfenas, MG",
   description:
-    "Atuação em Direito Penal e Processo Penal, com sede em Poços de Caldas e atendimento remoto em todo o Brasil.",
+    "Advocacia Elder Martins Advogados Associados, em Alfenas, Minas Gerais. Conheça a equipe e as áreas de atuação do escritório.",
   keywords: [
-    "Vinícius Bengtson Advocacia",
-    "advogado criminal em Poços de Caldas",
-    "advocacia criminal em Poços de Caldas",
-    "direito penal",
-    "processo penal",
-    "audiência de custódia",
-    "execução penal",
+    "Advocacia Elder Martins",
+    "Elder Martins Advogados Associados",
+    "advocacia em Alfenas",
+    "Direito do Trabalho",
+    "Direito Empresarial",
+    "Direito de Família",
+    "Sucessões",
+    "Direito Civil",
+    "Direito Previdenciário",
   ],
   robots: { index: true, follow: true },
   openGraph: {
     type: "website",
     locale: "pt_BR",
-    title: "Vinícius Bengtson Advocacia | Direito Penal",
+    title: "Elder Martins Advogados Associados | Alfenas, MG",
     description:
-      "Atuação em Direito Penal e Processo Penal. Sede em Poços de Caldas, com atendimento remoto em todo o Brasil.",
-    siteName: "Vinícius Bengtson Advocacia",
+      "Conheça a equipe e as áreas de atuação da Advocacia Elder Martins, em Alfenas, Minas Gerais.",
+    siteName: "Advocacia Elder Martins Advogados Associados",
   },
   twitter: {
     card: "summary",
-    title: "Vinícius Bengtson Advocacia | Direito Penal",
+    title: "Elder Martins Advogados Associados | Alfenas, MG",
     description:
-      "Atuação em Direito Penal e Processo Penal, com sede em Poços de Caldas e atendimento remoto em todo o Brasil.",
+      "Conheça a equipe e as áreas de atuação da Advocacia Elder Martins, em Alfenas, Minas Gerais.",
   },
 };
 

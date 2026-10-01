@@ -11,28 +11,19 @@ import {
 import {
   ArrowRight,
   ArrowUpRight,
-  Gavel,
-  Mail,
+  BriefcaseBusiness,
   MapPin,
   Menu,
-  MessageCircle,
-  Quote,
   Scale,
-  Search,
-  ShieldCheck,
+  UsersRound,
   X,
 } from "lucide-react";
 
-const whatsappNumber = "5535991912107";
-const whatsappMessage = encodeURIComponent(
-  "Olá, gostaria de informações sobre a atuação do escritório.",
-);
-const whatsapp = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-const email = "contato@viniciusbengtsonadvocacia.com.br";
+const officeName = "Advocacia Elder Martins Advogados Associados";
+const instagramUrl = "https://www.instagram.com/eldermartinsadvogados/";
 const officeAddress =
-  "Rua Prefeito Chagas, 305, sala 802A, 8º andar, Centro, Ed. Manhattan, Poços de Caldas, MG, 37701-010";
-const maps = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(officeAddress)}`;
-const googleReviews = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("Vinícius Bengtson Advogado, Poços de Caldas, MG")}`;
+  "R. Dr. Marcial Júnior, 150 - Parque das Nações, Alfenas - MG, 37130-000, Brasil";
+const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${officeName}, ${officeAddress}`)}`;
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 22 },
@@ -51,74 +42,145 @@ const stagger: Variants = {
 const practiceAreas = [
   {
     number: "01",
-    title: "Delegacia e flagrante",
-    icon: Search,
+    title: "Trabalho & empresas",
+    icon: BriefcaseBusiness,
+    lead: "Elder Martins",
+    areas: ["Direito do Trabalho", "Direito Empresarial"],
     summary:
-      "Orientação jurídica desde os primeiros atos da investigação criminal.",
+      "Atuação em questões trabalhistas e empresariais, com atenção ao contexto de cada demanda.",
     details:
-      "A assistência na delegacia e o acompanhamento em flagrantes ajudam a compreender os atos realizados, os direitos envolvidos e os próximos passos do procedimento.",
-    topics: [
-      "Assistência em delegacias",
-      "Acompanhamento em flagrantes",
-      "Inquérito policial",
-    ],
+      "O escritório informa atuação em Direito do Trabalho e Empresarial. A orientação considera as particularidades apresentadas e os documentos relacionados a cada situação.",
   },
   {
     number: "02",
-    title: "Custódia e liberdade",
-    icon: Scale,
-    summary:
-      "Acompanhamento em audiência de custódia e análise de medidas cabíveis.",
-    details:
-      "Cada situação exige leitura própria dos fatos e dos documentos disponíveis. A atuação inclui acompanhamento em audiência de custódia e análise das medidas previstas para o caso.",
-    topics: [
-      "Audiência de custódia",
-      "Pedidos de liberdade",
-      "Habeas corpus",
-      "Prisão domiciliar",
+    title: "Família & sucessões",
+    icon: UsersRound,
+    lead: "Fernanda Modolo",
+    areas: [
+      "Direito do Trabalho",
+      "Direito de Família",
+      "Sucessões",
     ],
+    summary:
+      "Orientação jurídica em temas familiares, sucessórios e de relações de trabalho.",
+    details:
+      "A atuação informada abrange Direito do Trabalho, Direito de Família e Sucessões. Cada situação é analisada de acordo com seus fatos e necessidades próprios.",
   },
   {
     number: "03",
-    title: "Processo criminal",
-    icon: ShieldCheck,
+    title: "Civil & previdenciário",
+    icon: Scale,
+    lead: "Everton Landre",
+    areas: ["Direito Civil", "Direito Previdenciário"],
     summary:
-      "Defesa técnica e acompanhamento claro das etapas processuais.",
+      "Acompanhamento jurídico em questões civis e previdenciárias.",
     details:
-      "Do inquérito à ação penal, o acompanhamento considera os autos, os prazos e as particularidades de cada processo, com explicação objetiva sobre o andamento e as providências possíveis.",
-    topics: [
-      "Inquérito policial",
-      "Resposta à acusação",
-      "Audiências e atos processuais",
-    ],
+      "O escritório informa atuação em Direito Civil e Previdenciário. A análise jurídica depende do contexto, dos documentos e das normas aplicáveis a cada caso.",
+  },
+];
+
+const team = [
+  {
+    name: "Elder Martins",
+    role: "Direito do Trabalho e Empresarial",
+    image: "/elder-martins/elder-martins.jpg",
+    alt: "Elder Martins em seu escritório",
+    position: "object-[50%_24%]",
   },
   {
-    number: "04",
-    title: "Execução penal",
-    icon: Gavel,
-    summary:
-      "Acompanhamento jurídico na fase de cumprimento da pena.",
-    details:
-      "A execução penal tem regras e marcos próprios. A análise dos registros e do histórico processual orienta a avaliação de pedidos e benefícios previstos na legislação.",
-    topics: ["Remição de pena", "Saída temporária", "Acompanhamento da execução"],
+    name: "Fernanda Modolo",
+    role: "Direito do Trabalho, Família e Sucessões",
+    image: "/elder-martins/fernanda-modolo.jpg",
+    alt: "Fernanda Modolo em retrato profissional",
+    position: "object-[50%_20%]",
+  },
+  {
+    name: "Everton Landre",
+    role: "Direito Civil e Previdenciário",
+    image: "/elder-martins/everton-landre.jpg",
+    alt: "Everton Landre em retrato profissional",
+    position: "object-[50%_18%]",
+  },
+];
+
+const reviews = [
+  {
+    author: "Juliana Avila",
+    quote:
+      "Ótimo atendimento, profissionais capacitados e sempre prontos para esclarecimentos. Super recomendo!",
+  },
+  {
+    author: "Marta Oliveira de Souza",
+    quote: "Excelente atendimento! São muito competentes! Super indico.",
+  },
+  {
+    author: "RodJoga",
+    quote: "Ótimos profissionais, atendimento excelente.",
+  },
+  {
+    author: "Gilberto Lopes Pereira",
+    quote: "Atendimento excelente, muito profissional e atencioso.",
+  },
+  {
+    author: "Neiva Modolo",
+    quote: "Ótimos profissionais! Atendimento nota 10!!!",
+  },
+  {
+    author: "Luís Antônio Portes Lima",
+    quote: "Atendimento de qualidade com resolutividade. Parabéns a toda a equipe.",
   },
 ];
 
 const navigation = [
   ["Início", "#inicio"],
   ["Atuação", "#atuacao"],
-  ["O advogado", "#escritorio"],
-  ["Atendimento", "#atendimento"],
-  ["Avaliações", "#avaliacoes"],
+  ["Equipe", "#equipe"],
+  ["Escritório", "#escritorio"],
   ["Contato", "#contato"],
 ];
 
-const reviews = [
-  "…muita seriedade, estratégia e comprometimento.",
-  "…demonstrou honestidade, competência e um profissionalismo raro nos dias de hoje.",
-  "…demonstra um domínio técnico impecável e, acima de tudo, uma transparência rara no mercado.",
-  "…seriedade, dedicação e agilidade do trabalho dele.",
-];
+function BrandMark({ compact = false }: { compact?: boolean }) {
+  return (
+    <span className="inline-flex items-center gap-3">
+      <span
+        aria-hidden="true"
+        className="grid size-11 shrink-0 place-items-center border border-brand-300/75 pr-1 font-serif text-[1.4rem] leading-none tracking-[-0.16em] text-brand-200"
+      >
+        EM
+      </span>
+      {!compact && (
+        <span className="flex flex-col leading-tight">
+          <span className="font-serif text-[1.2rem] tracking-[0.015em] text-white">
+            Elder Martins
+          </span>
+          <span className="mt-1 text-[8px] font-semibold uppercase tracking-[0.19em] text-white/55">
+            Advogados Associados
+          </span>
+        </span>
+      )}
+    </span>
+  );
+}
+
+function InstagramMark({ size = 16 }: { size?: number }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <rect x="3" y="3" width="18" height="18" rx="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.7" r="0.7" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 function Heading({
   eyebrow,
@@ -162,9 +224,9 @@ function Heading({
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [activeArea, setActiveArea] = useState<(typeof practiceAreas)[number] | null>(
-    null,
-  );
+  const [activeArea, setActiveArea] = useState<
+    (typeof practiceAreas)[number] | null
+  >(null);
 
   useEffect(() => {
     if (!activeArea) return;
@@ -192,22 +254,14 @@ export default function Home() {
         </a>
 
         <header className="sticky top-0 z-40 border-b border-white/10 bg-night/95 text-white backdrop-blur-xl">
-          <div className="mx-auto flex h-[82px] max-w-7xl items-center justify-between gap-5 px-5 sm:h-[96px] sm:px-8 lg:px-12">
+          <div className="mx-auto flex h-[78px] max-w-7xl items-center justify-between gap-5 px-5 sm:h-[88px] sm:px-8 lg:px-12">
             <a
               href="#inicio"
-              aria-label="Vinícius Bengtson Advocacia — início"
+              aria-label={`${officeName} — início`}
               onClick={closeMenu}
               className="shrink-0"
             >
-              <Image
-                src="/vinicius-bengtson/logo.png"
-                width={2006}
-                height={784}
-                alt="Vinícius Bengtson — Advocacia Especializada"
-                className="h-auto w-[176px] sm:w-[210px]"
-                sizes="(max-width: 640px) 176px, 210px"
-                loading="eager"
-              />
+              <BrandMark />
             </a>
 
             <nav
@@ -222,12 +276,12 @@ export default function Home() {
             </nav>
 
             <a
-              href={whatsapp}
+              href={instagramUrl}
               target="_blank"
               rel="noreferrer"
               className="hidden items-center gap-2 rounded-full border border-brand-300/60 px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.13em] text-brand-100 transition-colors hover:border-brand-200 hover:bg-brand-300 hover:text-night lg:inline-flex"
             >
-              <MessageCircle size={15} /> WhatsApp
+              <InstagramMark size={15} /> Instagram
               <ArrowUpRight size={13} />
             </a>
 
@@ -267,12 +321,12 @@ export default function Home() {
                   ))}
                   <a
                     className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-brand-300 px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.13em] text-night"
-                    href={whatsapp}
+                    href={instagramUrl}
                     target="_blank"
                     rel="noreferrer"
                     onClick={closeMenu}
                   >
-                    <MessageCircle size={15} /> WhatsApp do escritório
+                    <InstagramMark size={15} /> Perfil do escritório
                   </a>
                 </div>
               </motion.nav>
@@ -285,9 +339,9 @@ export default function Home() {
             id="inicio"
             className="relative isolate scroll-mt-24 overflow-hidden bg-night text-white"
           >
-            <div className="pointer-events-none absolute -right-40 top-12 -z-10 size-[35rem] rounded-full bg-brand-800/20 blur-3xl" />
+            <div className="pointer-events-none absolute -right-40 top-10 -z-10 size-[35rem] rounded-full bg-brand-800/20 blur-3xl" />
             <div className="pointer-events-none absolute -left-52 bottom-[-17rem] -z-10 size-[36rem] rounded-full bg-brand-700/10 blur-3xl" />
-            <div className="mx-auto grid min-h-[690px] max-w-7xl items-center gap-12 px-5 pb-16 pt-16 sm:px-8 sm:pb-20 sm:pt-20 lg:min-h-[740px] lg:grid-cols-[1.02fr_0.98fr] lg:gap-10 lg:px-12 lg:py-20">
+            <div className="mx-auto grid min-h-[680px] max-w-7xl items-center gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:min-h-[740px] lg:grid-cols-[1.08fr_0.92fr] lg:gap-10 lg:px-12 lg:py-20">
               <motion.div
                 initial="hidden"
                 animate="visible"
@@ -295,37 +349,42 @@ export default function Home() {
                 className="relative z-10 max-w-2xl lg:py-6"
               >
                 <motion.p variants={reveal} className="eyebrow-light mb-7">
-                  DIREITO PENAL · POÇOS DE CALDAS, MG
+                  ADVOCACIA ELDER MARTINS · ALFENAS, MG
                 </motion.p>
                 <motion.h1
                   variants={reveal}
                   className="max-w-[730px] font-serif text-[3.25rem] leading-[0.98] tracking-[-0.045em] text-white sm:text-6xl lg:text-[5.05rem]"
                 >
-                  Defesa criminal com <em className="font-normal text-brand-300">presença</em> em cada etapa.
+                  Orientação jurídica com{" "}
+                  <em className="font-normal text-brand-300">clareza</em> e
+                  presença.
                 </motion.h1>
                 <motion.p
                   variants={reveal}
                   className="mt-7 max-w-xl text-[15px] leading-7 text-white/70 sm:text-base sm:leading-8"
                 >
-                  Atuação em Direito Penal e Processo Penal, da delegacia à execução penal. Sede em Poços de Caldas e atendimento remoto em todo o Brasil.
+                  Atuação em diferentes áreas do Direito, com atenção às
+                  particularidades de cada demanda. Conheça a equipe e o
+                  escritório em Alfenas.
                 </motion.p>
                 <motion.div
                   variants={reveal}
                   className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
                 >
                   <a
-                    href={whatsapp}
+                    href={instagramUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-300 bg-brand-300 px-7 py-4 text-xs font-semibold uppercase tracking-[0.12em] text-night transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-brand-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand-200"
                   >
-                    <MessageCircle size={16} /> WhatsApp do escritório
+                    <InstagramMark size={16} /> Fale com o escritório
+                    <ArrowUpRight size={14} />
                   </a>
                   <a
                     href="#atuacao"
                     className="group inline-flex items-center gap-2 px-1 py-3 text-sm font-medium text-white/80 transition-colors hover:text-brand-200"
                   >
-                    Áreas de atuação
+                    Conheça a atuação
                     <ArrowRight
                       size={15}
                       className="transition-transform group-hover:translate-x-1"
@@ -338,11 +397,11 @@ export default function Home() {
                 >
                   <span className="inline-flex items-center gap-2">
                     <MapPin size={15} className="text-brand-300" />
-                    Poços de Caldas · MG
+                    Alfenas · Minas Gerais
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <Scale size={15} className="text-brand-300" />
-                    OAB/MG 186.580
+                    Atendimento jurídico
                   </span>
                 </motion.div>
               </motion.div>
@@ -350,26 +409,29 @@ export default function Home() {
               <motion.figure
                 initial={{ opacity: 0, scale: 0.97, y: 18 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.85, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
+                transition={{
+                  duration: 0.85,
+                  delay: 0.14,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
                 className="relative mx-auto w-full max-w-[490px] lg:ml-auto lg:mr-2"
               >
                 <div className="absolute -inset-3 -rotate-2 border border-brand-300/35 sm:-inset-4" />
-                <div className="relative aspect-[0.82] overflow-hidden bg-[#24221d]">
+                <div className="relative aspect-[0.84] overflow-hidden bg-[#24221d]">
                   <Image
-                    src="/vinicius-bengtson/vinicius-bengtson-portrait.jpg"
-                    alt="Vinícius Bengtson em retrato profissional no escritório"
+                    src="/elder-martins/elder-martins.jpg"
+                    alt="Elder Martins em seu escritório"
                     fill
                     sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 42vw"
-                    className="object-cover object-[50%_23%]"
-                    loading="eager"
-                    fetchPriority="high"
+                    className="object-cover object-[50%_24%]"
+                    preload
                   />
-                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-night/95 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-night/90 to-transparent" />
                   <figcaption className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-3 text-white sm:bottom-8 sm:left-8 sm:right-8">
                     <div>
-                      <p className="font-serif text-2xl">Vinícius Bengtson</p>
+                      <p className="font-serif text-2xl">Elder Martins</p>
                       <p className="mt-1 text-[10px] uppercase tracking-[0.17em] text-white/70">
-                        Advogado · OAB/MG 186.580
+                        Advocacia · Alfenas, MG
                       </p>
                     </div>
                     <span className="grid size-11 shrink-0 place-items-center rounded-full border border-brand-200/70 text-brand-200">
@@ -378,21 +440,21 @@ export default function Home() {
                   </figcaption>
                 </div>
                 <div className="absolute -left-3 top-[15%] border border-white/10 bg-night px-4 py-2.5 text-[10px] font-medium tracking-[0.1em] text-white shadow-card sm:-left-9 sm:px-5">
-                  POÇOS DE CALDAS · ATUAÇÃO NACIONAL
+                  DIREITO COM ATENÇÃO A CADA HISTÓRIA
                 </div>
               </motion.figure>
             </div>
           </section>
 
           <section
-            aria-label="Informações do escritório"
+            aria-label="Informações sobre o escritório"
             className="border-b border-ink/10 bg-white"
           >
             <div className="mx-auto grid max-w-7xl gap-6 px-5 py-7 sm:grid-cols-3 sm:gap-4 sm:px-8 lg:px-12">
               {[
-                ["Direito Penal", "atuação criminal"],
-                ["Brasil", "atendimento remoto"],
-                ["Poços de Caldas", "sede do escritório"],
+                ["Alfenas", "sede do escritório"],
+                ["Três profissionais", "equipe apresentada"],
+                ["Seis frentes", "áreas informadas"],
               ].map(([value, label], index) => (
                 <div
                   key={value}
@@ -427,9 +489,9 @@ export default function Home() {
               >
                 <Heading
                   eyebrow="ÁREAS DE ATUAÇÃO"
-                  description="Informações gerais sobre as frentes de trabalho em Direito Penal. Cada situação depende de análise própria."
+                  description="As áreas abaixo foram informadas pelo escritório. A análise e a orientação dependem das particularidades de cada situação."
                 >
-                  Orientação jurídica em momentos decisivos.
+                  Atuação jurídica em diferentes momentos da vida.
                 </Heading>
                 <span className="hidden h-px w-28 bg-brand-500/60 md:mb-3 md:block" />
               </motion.div>
@@ -439,7 +501,7 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.12 }}
                 variants={stagger}
-                className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-4"
+                className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3"
               >
                 {practiceAreas.map((area) => {
                   const Icon = area.icon;
@@ -450,7 +512,7 @@ export default function Home() {
                       type="button"
                       onClick={() => setActiveArea(area)}
                       aria-haspopup="dialog"
-                      className="group flex min-h-[290px] flex-col border border-ink/10 bg-white p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/55 hover:shadow-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700 sm:p-7"
+                      className="group flex min-h-[300px] flex-col border border-ink/10 bg-white p-6 text-left transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/55 hover:shadow-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-700 sm:p-8"
                     >
                       <div className="flex items-center justify-between">
                         <span className="font-serif text-lg text-brand-700">
@@ -460,14 +522,17 @@ export default function Home() {
                           <Icon size={19} strokeWidth={1.6} />
                         </span>
                       </div>
-                      <h3 className="mt-8 font-serif text-[1.55rem] leading-tight text-ink">
+                      <h3 className="mt-8 font-serif text-[1.65rem] leading-tight text-ink">
                         {area.title}
                       </h3>
+                      <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-brand-800">
+                        {area.lead}
+                      </p>
                       <p className="mt-3 flex-1 text-[13px] leading-6 text-ink-soft">
                         {area.summary}
                       </p>
                       <span className="mt-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-brand-800">
-                        Mais informações
+                        Ver áreas relacionadas
                         <ArrowRight
                           size={14}
                           className="transition-transform group-hover:translate-x-1"
@@ -481,34 +546,96 @@ export default function Home() {
           </section>
 
           <section
-            id="escritorio"
+            id="equipe"
             className="scroll-mt-24 bg-white py-20 sm:py-28 lg:py-32"
           >
-            <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:gap-20 lg:px-12">
+            <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.18 }}
+                variants={reveal}
+              >
+                <Heading
+                  eyebrow="A EQUIPE"
+                  description="Profissionais e áreas de atuação apresentados pelo escritório."
+                >
+                  Pessoas à frente do atendimento.
+                </Heading>
+              </motion.div>
+
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, amount: 0.12 }}
+                variants={stagger}
+                className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
+              >
+                {team.map((person, index) => (
+                  <motion.figure
+                    key={person.name}
+                    variants={reveal}
+                    className="group"
+                  >
+                    <div className="relative aspect-[0.86] overflow-hidden bg-[#ded8cc]">
+                      <Image
+                        src={person.image}
+                        alt={person.alt}
+                        fill
+                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 44vw, 30vw"
+                        className={`object-cover ${person.position} transition-transform duration-700 group-hover:scale-[1.025]`}
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-night/80 to-transparent" />
+                      <span className="absolute bottom-5 left-5 font-serif text-4xl text-white/90">
+                        0{index + 1}
+                      </span>
+                    </div>
+                    <figcaption className="border-b border-ink/15 py-5">
+                      <h3 className="font-serif text-[1.65rem] text-ink">
+                        {person.name}
+                      </h3>
+                      <p className="mt-2 text-[11px] leading-5 text-ink-soft">
+                        {person.role}
+                      </p>
+                    </figcaption>
+                  </motion.figure>
+                ))}
+              </motion.div>
+            </div>
+          </section>
+
+          <section
+            id="escritorio"
+            className="scroll-mt-24 bg-[#efede7] py-20 sm:py-28 lg:py-32"
+          >
+            <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:px-12">
               <motion.figure
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.2 }}
                 variants={reveal}
-                className="relative mx-auto w-full max-w-[550px]"
+                className="relative mx-auto w-full max-w-[570px]"
               >
-                <div className="relative aspect-[0.93] overflow-hidden bg-[#211e19]">
+                <div className="relative aspect-[1.18] overflow-hidden bg-[#211e19]">
                   <Image
-                    src="/vinicius-bengtson/office-portrait.jpg"
-                    alt="Retrato de Vinícius Bengtson em seu escritório"
+                    src="/elder-martins/equipe-elder-martins.jpg"
+                    alt="Integrantes da equipe em frente ao escritório"
                     fill
-                    sizes="(max-width: 1024px) 90vw, 44vw"
-                    className="object-cover object-[50%_27%]"
+                    sizes="(max-width: 1024px) 90vw, 46vw"
+                    className="object-cover object-[50%_48%]"
+                    loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-night/60 via-transparent to-transparent" />
-                  <figcaption className="absolute bottom-6 left-6 right-6 border-l border-brand-300 pl-4 text-white sm:bottom-8 sm:left-8">
-                    <p className="font-serif text-2xl">Vinícius Daniel de Toledo Bengtson</p>
-                    <p className="mt-1 text-[10px] uppercase tracking-[0.16em] text-white/70">
-                      OAB/MG 186.580
-                    </p>
-                  </figcaption>
                 </div>
-                <span className="absolute -left-4 -top-4 -z-10 size-24 border-l border-t border-brand-600/45 sm:-left-7 sm:-top-7 sm:size-32" />
+                <figcaption className="absolute -bottom-5 left-5 border-l-2 border-brand-600 bg-white px-5 py-4 shadow-card sm:-left-6 sm:px-7">
+                  <p className="font-serif text-xl text-ink">
+                    Alfenas, Minas Gerais
+                  </p>
+                  <p className="mt-1 text-[11px] leading-5 text-ink-soft">
+                    Advocacia Elder Martins
+                  </p>
+                </figcaption>
+                <span className="absolute -right-3 -top-3 -z-10 size-20 border-r border-t border-brand-600/45 sm:-right-6 sm:-top-6 sm:size-28" />
               </motion.figure>
 
               <motion.div
@@ -518,32 +645,39 @@ export default function Home() {
                 variants={stagger}
               >
                 <motion.p variants={reveal} className="eyebrow">
-                  O ADVOGADO
+                  O ESCRITÓRIO
                 </motion.p>
                 <motion.h2
                   variants={reveal}
                   className="mt-4 max-w-2xl font-serif text-4xl leading-[1.07] tracking-[-0.035em] text-ink sm:text-5xl lg:text-[3.55rem]"
                 >
-                  Uma atuação que começa pela <em className="font-normal text-brand-700">escuta.</em>
+                  Uma conversa atenta é o começo.
                 </motion.h2>
                 <motion.p
                   variants={reveal}
                   className="mt-6 max-w-xl text-[15px] leading-7 text-ink-soft"
                 >
-                  Vinícius Bengtson atua em Direito Penal e Processo Penal. O trabalho parte da compreensão do contexto, da leitura cuidadosa dos elementos disponíveis e da orientação sobre os caminhos jurídicos possíveis.
+                  A equipe Elder Martins reúne profissionais com atuação nas
+                  áreas trabalhista, empresarial, familiar, sucessória, civil e
+                  previdenciária. O primeiro passo é compreender o contexto e
+                  apresentar informações jurídicas de forma clara.
                 </motion.p>
                 <motion.p
                   variants={reveal}
                   className="mt-4 max-w-xl text-[15px] leading-7 text-ink-soft"
                 >
-                  Com sede em Poços de Caldas, o escritório atende presencialmente e a distância, em todo o Brasil. A comunicação é direta e conduzida com clareza, respeito e discrição.
+                  O escritório está localizado em Alfenas, Minas Gerais. Para
+                  conhecer a equipe e acompanhar as informações publicadas,
+                  acesse os canais oficiais.
                 </motion.p>
                 <motion.a
                   variants={reveal}
-                  href={`mailto:${email}`}
+                  href={instagramUrl}
+                  target="_blank"
+                  rel="noreferrer"
                   className="group mt-8 inline-flex items-center gap-2 border-b border-brand-700/40 pb-2 text-xs font-semibold uppercase tracking-[0.13em] text-brand-800 transition-colors hover:border-brand-700 hover:text-brand-700"
                 >
-                  Contato profissional
+                  Instagram do escritório
                   <ArrowUpRight
                     size={15}
                     className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -554,97 +688,24 @@ export default function Home() {
           </section>
 
           <section
-            id="atendimento"
-            className="scroll-mt-24 bg-[#f3f3f1] py-20 sm:py-28"
-          >
-            <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20 lg:px-12">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={stagger}
-              >
-                <motion.div variants={reveal}>
-                  <Heading
-                    eyebrow="FORMA DE ATUAÇÃO"
-                    description="Um acompanhamento jurídico construído com atenção ao contexto e comunicação objetiva durante o trabalho."
-                  >
-                    Cada caso tem seu próprio contexto.
-                  </Heading>
-                </motion.div>
-                <div className="mt-9 divide-y divide-ink/10 border-y border-ink/10">
-                  {[
-                    ["01", "Escuta e contexto", "Compreensão das circunstâncias e das dúvidas que precisam de orientação."],
-                    ["02", "Análise jurídica", "Leitura dos documentos e dos atos processuais relacionados à situação."],
-                    ["03", "Comunicação clara", "Explicação das etapas, dos prazos e das possibilidades jurídicas identificadas."],
-                  ].map(([number, title, description]) => (
-                    <motion.div
-                      key={number}
-                      variants={reveal}
-                      className="grid gap-3 py-5 first:pt-5 sm:grid-cols-[54px_1fr] sm:gap-5 sm:py-6"
-                    >
-                      <span className="font-serif text-2xl text-brand-700">
-                        {number}
-                      </span>
-                      <div>
-                        <h3 className="font-serif text-2xl text-ink">{title}</h3>
-                        <p className="mt-2 max-w-lg text-[13px] leading-6 text-ink-soft">
-                          {description}
-                        </p>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.figure
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="relative mx-auto w-full max-w-[530px]"
-              >
-                <div className="relative aspect-[0.9] overflow-hidden bg-[#c9c3b8]">
-                  <Image
-                    src="/vinicius-bengtson/document-review.jpg"
-                    alt="Advogado analisando e assinando documentos jurídicos"
-                    fill
-                    sizes="(max-width: 1024px) 90vw, 42vw"
-                    className="object-cover object-[50%_48%]"
-                  />
-                </div>
-                <figcaption className="absolute -bottom-5 left-5 border-l-2 border-brand-600 bg-white px-5 py-4 shadow-card sm:-left-6 sm:px-7">
-                  <p className="font-serif text-xl text-ink">
-                    Orientação com clareza
-                  </p>
-                  <p className="mt-1 text-[11px] leading-5 text-ink-soft">
-                    Informação compreensível em cada etapa.
-                  </p>
-                </figcaption>
-                <span className="absolute -right-3 -top-3 -z-10 size-20 border-r border-t border-brand-600/45 sm:-right-6 sm:-top-6 sm:size-28" />
-              </motion.figure>
-            </div>
-          </section>
-
-          <section
             id="avaliacoes"
-            className="scroll-mt-24 bg-white py-20 sm:py-28"
+            className="scroll-mt-24 bg-white py-20 sm:py-24"
           >
             <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
               <div className="flex flex-col gap-7 border-b border-ink/10 pb-8 sm:flex-row sm:items-end sm:justify-between">
                 <Heading
                   eyebrow="AVALIAÇÕES PÚBLICAS"
-                  description="Trechos de avaliações publicadas no Google, reproduzidos sem identificação dos autores."
+                  description="Alguns comentários de avaliações públicas compartilhadas sobre o atendimento da equipe."
                 >
                   A experiência no atendimento.
                 </Heading>
                 <a
-                  href={googleReviews}
+                  href={mapsUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="group inline-flex shrink-0 items-center gap-2 self-start border-b border-brand-600/60 pb-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink transition-colors hover:border-brand-700 hover:text-brand-700 sm:self-auto"
                 >
-                  Ver avaliações no Google
+                  Ver perfil e avaliações no Google
                   <ArrowUpRight
                     size={14}
                     className="text-brand-600 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -655,28 +716,33 @@ export default function Home() {
               <motion.div
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.15 }}
+                viewport={{ once: true, amount: 0.12 }}
                 variants={stagger}
-                className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-4"
+                className="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-3"
               >
-                {reviews.map((review) => (
+                {reviews.map(({ author, quote }) => (
                   <motion.figure
-                    key={review}
+                    key={author}
                     variants={reveal}
-                    className="group flex min-h-[230px] flex-col border border-ink/10 bg-[#fafaf9] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/55 hover:bg-white hover:shadow-card sm:p-7"
+                    className="group flex min-h-[220px] flex-col border border-ink/10 bg-[#faf9f6] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/55 hover:bg-white hover:shadow-card sm:p-7"
                   >
-                    <Quote
+                    <span
                       aria-hidden="true"
-                      size={22}
-                      strokeWidth={1.5}
-                      className="text-brand-600"
-                    />
-                    <blockquote className="mt-6 flex-1 font-serif text-[21px] leading-[1.45] text-ink">
-                      “{review}”
+                      className="font-serif text-5xl leading-none text-brand-600"
+                    >
+                      “
+                    </span>
+                    <blockquote className="mt-3 flex-1 font-serif text-[20px] leading-[1.45] text-ink">
+                      {quote}
                     </blockquote>
-                    <figcaption className="mt-7 flex items-center gap-3 border-t border-ink/10 pt-4 text-[9px] font-semibold uppercase tracking-[0.15em] text-ink-soft">
-                      <span className="h-px w-5 bg-brand-500" />
-                      Avaliação pública no Google
+                    <figcaption className="mt-6 border-t border-ink/10 pt-4">
+                      <span className="flex items-center gap-3 text-[11px] font-semibold text-ink">
+                        <span className="h-px w-5 bg-brand-500" />
+                        {author}
+                      </span>
+                      <span className="mt-1 block pl-8 text-[9px] font-semibold uppercase tracking-[0.15em] text-ink-soft">
+                        Avaliação pública no Google
+                      </span>
                     </figcaption>
                   </motion.figure>
                 ))}
@@ -693,25 +759,19 @@ export default function Home() {
                 <Heading
                   eyebrow="CONTATO E LOCALIZAÇÃO"
                   light
-                  description="Informações para contato com o escritório e localização da sede em Poços de Caldas, Minas Gerais."
+                  description="Encontre o endereço do escritório e acesse os canais oficiais de comunicação."
                 >
-                  Informações do escritório.
+                  Estamos em Alfenas.
                 </Heading>
                 <div className="mt-9 flex flex-col items-start gap-4">
                   <a
-                    href={whatsapp}
+                    href={instagramUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-3 border-b border-brand-300/45 pb-3 text-sm text-brand-100 transition-colors hover:border-brand-200 hover:text-white"
                   >
-                    <MessageCircle size={17} /> WhatsApp · (35) 99191-2107
+                    <InstagramMark size={17} /> Instagram do escritório
                     <ArrowUpRight size={14} />
-                  </a>
-                  <a
-                    href={`mailto:${email}`}
-                    className="inline-flex items-center gap-3 text-sm text-white/70 transition-colors hover:text-brand-200"
-                  >
-                    <Mail size={17} /> {email}
                   </a>
                 </div>
               </div>
@@ -724,25 +784,27 @@ export default function Home() {
                   </span>
                   <div>
                     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-200">
-                      Sede
+                      Endereço
                     </p>
                     <p className="mt-1 font-serif text-2xl text-white">
-                      Poços de Caldas · MG
+                      Alfenas · MG
                     </p>
                   </div>
                 </div>
                 <address className="mt-7 max-w-md not-italic text-[14px] leading-7 text-white/70">
-                  Rua Prefeito Chagas, 305, sala 802A, 8º andar<br />
-                  Centro · Ed. Manhattan<br />
-                  Poços de Caldas · MG · CEP 37701-010
+                  R. Dr. Marcial Júnior, 150
+                  <br />
+                  Parque das Nações
+                  <br />
+                  Alfenas · MG · CEP 37130-000
                 </address>
                 <div className="my-7 h-px bg-white/15" />
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <p className="text-xs text-white/60">
-                    Atendimento presencial e remoto
+                    Advocacia Elder Martins Advogados Associados
                   </p>
                   <a
-                    href={maps}
+                    href={mapsUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-white/25 px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.13em] text-white transition-colors hover:border-brand-300 hover:text-brand-200"
@@ -760,20 +822,15 @@ export default function Home() {
             <div>
               <a
                 href="#inicio"
-                aria-label="Vinícius Bengtson Advocacia — voltar ao início"
+                aria-label={`${officeName} — voltar ao início`}
                 className="inline-flex"
               >
-                <Image
-                  src="/vinicius-bengtson/logo.png"
-                  width={2006}
-                  height={784}
-                  alt="Vinícius Bengtson — Advocacia Especializada"
-                  className="h-auto w-[185px]"
-                  sizes="185px"
-                />
+                <BrandMark />
               </a>
               <p className="mt-4 max-w-xs text-xs leading-6 text-white/55">
-                Advocacia criminal com sede em Poços de Caldas e atendimento em todo o Brasil.
+                Advocacia em Alfenas, Minas Gerais. Atuação informada nas áreas
+                trabalhista, empresarial, familiar, sucessória, civil e
+                previdenciária.
               </p>
             </div>
             <div>
@@ -781,46 +838,53 @@ export default function Home() {
                 Navegação
               </h2>
               <div className="mt-4 flex flex-col items-start gap-3 text-xs text-white/65">
-                <a className="footer-link" href="#atuacao">Áreas de atuação</a>
-                <a className="footer-link" href="#escritorio">O advogado</a>
-                <a className="footer-link" href="#atendimento">Forma de atuação</a>
-                <a className="footer-link" href="#avaliacoes">Avaliações</a>
-                <a className="footer-link" href="#contato">Contato</a>
+                <a className="footer-link" href="#atuacao">
+                  Áreas de atuação
+                </a>
+                <a className="footer-link" href="#equipe">
+                  Equipe
+                </a>
+                <a className="footer-link" href="#escritorio">
+                  O escritório
+                </a>
+                <a className="footer-link" href="#avaliacoes">
+                  Informações públicas
+                </a>
+                <a className="footer-link" href="#contato">
+                  Contato
+                </a>
               </div>
             </div>
             <div>
               <h2 className="text-[10px] font-semibold uppercase tracking-[0.18em] text-brand-200">
-                Informações
+                Canais oficiais
               </h2>
               <div className="mt-4 flex flex-col items-start gap-3 text-xs text-white/65">
                 <a
-                  href={whatsapp}
+                  href={instagramUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="footer-link inline-flex items-center gap-2"
                 >
-                  <MessageCircle size={14} /> (35) 99191-2107
+                  <InstagramMark size={14} /> Instagram
                 </a>
                 <a
-                  href={`mailto:${email}`}
-                  className="footer-link inline-flex items-center gap-2"
-                >
-                  <Mail size={14} /> E-mail do escritório
-                </a>
-                <a
-                  href={maps}
+                  href={mapsUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="footer-link inline-flex items-start gap-2"
                 >
-                  <MapPin size={14} className="mt-0.5 shrink-0" /> Poços de Caldas · MG
+                  <MapPin size={14} className="mt-0.5 shrink-0" /> Alfenas · MG
                 </a>
               </div>
             </div>
           </div>
           <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-3 border-t border-white/15 pt-5 text-[10px] text-white/40 sm:flex-row sm:items-center sm:justify-between">
-            <p>© {new Date().getFullYear()} Vinícius Bengtson Advocacia · OAB/MG 186.580.</p>
-            <p>Conteúdo informativo. Cada situação deve ser analisada individualmente.</p>
+            <p>© {new Date().getFullYear()} {officeName}.</p>
+            <p>
+              Conteúdo informativo. Cada situação deve ser analisada
+              individualmente.
+            </p>
           </div>
         </footer>
 
@@ -852,31 +916,38 @@ export default function Home() {
                 >
                   <X size={18} />
                 </button>
-                <p className="eyebrow">DIREITO PENAL</p>
+                <p className="eyebrow">ÁREAS DE ATUAÇÃO</p>
                 <h2
                   id="area-dialog-title"
                   className="mt-4 max-w-sm pr-10 font-serif text-4xl leading-tight text-ink"
                 >
                   {activeArea.title}
                 </h2>
+                <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.15em] text-brand-800">
+                  {activeArea.lead}
+                </p>
                 <p className="mt-5 text-sm leading-7 text-ink-soft">
                   {activeArea.details}
                 </p>
                 <ul className="mt-6 space-y-3">
-                  {activeArea.topics.map((topic) => (
-                    <li key={topic} className="flex items-center gap-3 text-sm text-ink">
+                  {activeArea.areas.map((area) => (
+                    <li
+                      key={area}
+                      className="flex items-center gap-3 text-sm text-ink"
+                    >
                       <span className="size-1.5 rounded-full bg-brand-700" />
-                      {topic}
+                      {area}
                     </li>
                   ))}
                 </ul>
                 <a
-                  href={whatsapp}
+                  href={instagramUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-8 inline-flex items-center gap-2 rounded-full border border-brand-300 bg-brand-300 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.12em] text-night transition-colors hover:bg-brand-200"
                 >
-                  <MessageCircle size={15} /> WhatsApp do escritório
+                  <InstagramMark size={15} /> Acessar Instagram do escritório
+                  <ArrowUpRight size={14} />
                 </a>
               </motion.section>
             </motion.div>

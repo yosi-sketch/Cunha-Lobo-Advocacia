@@ -2,34 +2,34 @@
 
 :root {
   color-scheme: light;
-  --brand-gold: #b89962;
-  --brand-gold-light: #d7c08c;
-  --brand-gold-dark: #80663a;
-  --brand-ink: #101010;
-  --brand-ink-soft: #676767;
-  --brand-ivory: #f6f6f4;
+  --brand-gold: #e7b763;
+  --brand-gold-light: #f2d48f;
+  --brand-gold-dark: #855e2b;
+  --brand-ink: #1c1a16;
+  --brand-ink-soft: #716d64;
+  --brand-ivory: #f7f5ef;
   --brand-paper: #ffffff;
-  --brand-night: #090909;
+  --brand-night: #11110f;
 }
 
 @theme inline {
   --font-serif: var(--font-display), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  --color-night: #090909;
-  --color-ink: #101010;
-  --color-ink-soft: #676767;
-  --color-ivory: #f6f6f4;
-  --color-brand-50: #fcfbf8;
-  --color-brand-100: #f5f0e5;
-  --color-brand-200: #e6d7b4;
-  --color-brand-300: #d7c08c;
-  --color-brand-400: #c9aa6d;
-  --color-brand-500: #b89962;
-  --color-brand-600: #9d7e49;
-  --color-brand-700: #80663a;
-  --color-brand-800: #62502f;
-  --color-brand-900: #43371f;
-  --color-brand-950: #241d11;
+  --color-night: #11110f;
+  --color-ink: #1c1a16;
+  --color-ink-soft: #716d64;
+  --color-ivory: #f7f5ef;
+  --color-brand-50: #fdfbf7;
+  --color-brand-100: #fcf1da;
+  --color-brand-200: #f1d28e;
+  --color-brand-300: #e7b763;
+  --color-brand-400: #d8a84d;
+  --color-brand-500: #c18c3f;
+  --color-brand-600: #a77735;
+  --color-brand-700: #855e2b;
+  --color-brand-800: #674820;
+  --color-brand-900: #493318;
+  --color-brand-950: #281c0e;
   --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.1);
 }
 
@@ -145,13 +145,13 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #ececeb;
+  background: #eeece6;
 }
 
 ::-webkit-scrollbar-thumb {
-  border: 2px solid #ececeb;
+  border: 2px solid #eeece6;
   border-radius: 999px;
-  background: #b89962;
+  background: var(--brand-gold);
 }
 
 ::-webkit-scrollbar-thumb:hover {
