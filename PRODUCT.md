@@ -1,35 +1,19 @@
-# Advocacia Elder Martins Advogados Associados
+# Macedo & Reis Advocacia
 
-## Plataforma
-
-Site institucional responsivo em Next.js, com navegação por seções, detalhes das áreas de atuação em modal e acesso aos canais profissionais de contato.
-
-## Público
-
-Pessoas que procuram orientação jurídica nas áreas de atuação informadas pelo escritório, com sede em Alfenas, Minas Gerais.
-
-## Objetivo
-
-Apresentar o escritório, sua equipe e suas áreas de atuação, além de facilitar o acesso ao Instagram, ao endereço e às informações públicas no Google.
+Site institucional para apresentar a equipe, as áreas Trabalhista, Família e Consumidor e facilitar o contato pelo WhatsApp. Sede em Passos, Minas Gerais; atendimento em todo o Brasil, conforme dados fornecidos pelo cliente.
 
 ## Identidade
 
-- Nome: Advocacia Elder Martins Advogados Associados.
-- Paleta inspirada no monograma enviado: dourado, carvão e tons quentes de marfim.
-- Tipografia: Cormorant Garamond nos títulos e Plus Jakarta Sans nos textos.
-- Tom: sóbrio, claro e informativo.
+Logo original, fotografia da equipe e registro do atendimento fornecidos pelo cliente. Paleta extraída dos pixels opacos do logo: bronze claro #e0b080, bronze profundo #805020 e marfim quente #fff0e0, com champagne #f0d8bf e fundo escuro #191410. Tipografia Cormorant Garamond e Plus Jakarta Sans.
 
-## Conteúdo e mídia
+## Experiência
 
-- Retratos e fotografia da equipe fornecidos pelo cliente, preparados em `public/elder-martins`.
-- Endereço: R. Dr. Marcial Júnior, 150, Parque das Nações, Alfenas - MG, CEP 37130-000.
-- Instagram: [@eldermartinsadvogados](https://www.instagram.com/eldermartinsadvogados/).
-- Atuação informada: Direito do Trabalho, Empresarial, Família, Sucessões, Civil e Previdenciário.
-- Equipe apresentada: Elder Martins, Fernanda Modolo e Everton Landre.
-- A seção de avaliações direciona ao perfil público do escritório no Google; depoimentos individuais não foram reproduzidos no site.
+Abertura editorial, áreas de atuação com detalhes em modal, apresentação da equipe, escritório, avaliações e contato. Menu móvel, animações respeitando movimento reduzido, foco contido no modal e devolvido ao fechar. Links de WhatsApp com mensagem inicial, telefone, Instagram e localização.
 
-## Restrições técnicas
+## Fontes de conteúdo
 
-- Next.js 16 App Router, React 19, Tailwind CSS 4 e Framer Motion.
-- Imagens locais servidas pelo otimizador do Next.js.
-- Navegação responsiva, animações com suporte à preferência por movimento reduzido e metadados atualizados.
+Nome, endereço, telefone, fotos, logo e avaliações enviados pelo cliente. Especialidades, abrangência nacional e Instagram confirmados na conversa. Depoimentos preservam a redação original; a avaliação de Tania é um trecho completo da parte fornecida. Não há promessa de resultado. Não foram informados e-mail, domínio definitivo, OAB ou horários completos.
+
+## Arquitetura
+
+Next.js 16 App Router, React 19, Tailwind CSS 4 e Framer Motion preservados. Tema central em app/globals.css. Imagens otimizadas com next/image. Metadados e ícones atualizados para a marca.

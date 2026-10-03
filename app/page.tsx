@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState, type ReactNode } from "react";
+import logo from "../public/macedo-reis-logo.png";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   AnimatePresence,
   MotionConfig,
@@ -12,6 +13,9 @@ import {
   ArrowRight,
   ArrowUpRight,
   BriefcaseBusiness,
+  MessageCircle,
+  Phone,
+  Star,
   MapPin,
   Menu,
   Scale,
@@ -19,11 +23,13 @@ import {
   X,
 } from "lucide-react";
 
-const officeName = "Advocacia Elder Martins Advogados Associados";
-const instagramUrl = "https://www.instagram.com/eldermartinsadvogados/";
-const officeAddress =
-  "R. Dr. Marcial Júnior, 150 - Parque das Nações, Alfenas - MG, 37130-000, Brasil";
+const officeName = "Macedo & Reis Advocacia";
+const instagramUrl = "https://www.instagram.com/adv.macedoereis/";
+const whatsappUrl = "https://wa.me/5535999599398?text=" + encodeURIComponent("Olá! Gostaria de conversar com a equipe Macedo & Reis sobre um atendimento jurídico.");
+const officeAddress = "R. Rio Branco, 1116A - Centro, Passos - MG, 37900-140";
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${officeName}, ${officeAddress}`)}`;
+const portrait = "/imgi_35_619419069_18088418261513195_5836168838757973608_n.jpg";
+const officePhoto = "/imgi_55_623391273_18202438261329514_1517017475295242263_n.jpg";
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 22 },
@@ -40,95 +46,24 @@ const stagger: Variants = {
 };
 
 const practiceAreas = [
-  {
-    number: "01",
-    title: "Trabalho & empresas",
-    icon: BriefcaseBusiness,
-    lead: "Elder Martins",
-    areas: ["Direito do Trabalho", "Direito Empresarial"],
-    summary:
-      "Atuação em questões trabalhistas e empresariais, com atenção ao contexto de cada demanda.",
-    details:
-      "O escritório informa atuação em Direito do Trabalho e Empresarial. A orientação considera as particularidades apresentadas e os documentos relacionados a cada situação.",
-  },
-  {
-    number: "02",
-    title: "Família & sucessões",
-    icon: UsersRound,
-    lead: "Fernanda Modolo",
-    areas: [
-      "Direito do Trabalho",
-      "Direito de Família",
-      "Sucessões",
-    ],
-    summary:
-      "Orientação jurídica em temas familiares, sucessórios e de relações de trabalho.",
-    details:
-      "A atuação informada abrange Direito do Trabalho, Direito de Família e Sucessões. Cada situação é analisada de acordo com seus fatos e necessidades próprios.",
-  },
-  {
-    number: "03",
-    title: "Civil & previdenciário",
-    icon: Scale,
-    lead: "Everton Landre",
-    areas: ["Direito Civil", "Direito Previdenciário"],
-    summary:
-      "Acompanhamento jurídico em questões civis e previdenciárias.",
-    details:
-      "O escritório informa atuação em Direito Civil e Previdenciário. A análise jurídica depende do contexto, dos documentos e das normas aplicáveis a cada caso.",
-  },
-];
-
-const team = [
-  {
-    name: "Elder Martins",
-    role: "Direito do Trabalho e Empresarial",
-    image: "/elder-martins/elder-martins.jpg",
-    alt: "Elder Martins em seu escritório",
-    position: "object-[50%_24%]",
-  },
-  {
-    name: "Fernanda Modolo",
-    role: "Direito do Trabalho, Família e Sucessões",
-    image: "/elder-martins/fernanda-modolo.jpg",
-    alt: "Fernanda Modolo em retrato profissional",
-    position: "object-[50%_20%]",
-  },
-  {
-    name: "Everton Landre",
-    role: "Direito Civil e Previdenciário",
-    image: "/elder-martins/everton-landre.jpg",
-    alt: "Everton Landre em retrato profissional",
-    position: "object-[50%_18%]",
-  },
+  { number: "01", title: "Direito Trabalhista", icon: BriefcaseBusiness, lead: "Cuidado com suas relações de trabalho",
+    areas: ["Orientação sobre relações de trabalho", "Análise de documentos e demandas", "Acompanhamento jurídico"],
+    summary: "Clareza para compreender seus direitos e tomar decisões sobre as relações de trabalho.",
+    details: "Cada relação de trabalho tem uma história. A equipe escuta sua demanda e analisa as informações e os documentos apresentados para orientar os próximos passos de acordo com o seu caso." },
+  { number: "02", title: "Direito de Família", icon: UsersRound, lead: "Sensibilidade em momentos importantes",
+    areas: ["Orientação em questões familiares", "Análise individual da situação", "Acompanhamento próximo"],
+    summary: "Escuta e orientação jurídica para lidar com questões familiares com o cuidado que elas merecem.",
+    details: "Questões familiares pedem atenção às pessoas envolvidas. O atendimento busca compreender o contexto da sua família, esclarecer dúvidas e apresentar os caminhos jurídicos aplicáveis à situação." },
+  { number: "03", title: "Direito do Consumidor", icon: Scale, lead: "Atenção às suas relações de consumo",
+    areas: ["Dúvidas sobre produtos e serviços", "Análise da relação de consumo", "Orientação sobre os próximos passos"],
+    summary: "Apoio para entender seus direitos nas relações com fornecedores de produtos e serviços.",
+    details: "Se uma relação de consumo trouxe dúvidas ou dificuldades, o primeiro passo é entender o que aconteceu. A equipe analisa seu relato e os documentos disponíveis para orientar a condução da demanda." },
 ];
 
 const reviews = [
-  {
-    author: "Juliana Avila",
-    quote:
-      "Ótimo atendimento, profissionais capacitados e sempre prontos para esclarecimentos. Super recomendo!",
-  },
-  {
-    author: "Marta Oliveira de Souza",
-    quote: "Excelente atendimento! São muito competentes! Super indico.",
-  },
-  {
-    author: "RodJoga",
-    quote: "Ótimos profissionais, atendimento excelente.",
-  },
-  {
-    author: "Gilberto Lopes Pereira",
-    quote: "Atendimento excelente, muito profissional e atencioso.",
-  },
-  {
-    author: "Neiva Modolo",
-    quote: "Ótimos profissionais! Atendimento nota 10!!!",
-  },
-  {
-    author: "Luís Antônio Portes Lima",
-    quote: "Atendimento de qualidade com resolutividade. Parabéns a toda a equipe.",
-  },
+  { author: "Tania Diniz", quote: "No meu caso fui atendida pela Dra Mariana, que desde o primeiro momento se mostrou receptiva e muito cordial para me atender." },
+  { author: "Talita Vitória", quote: "Excelente trabalho e excelente profissional. Estou satisfeita com tudo, sou grata por ter solucionando meu problema. Super indico heim!!!" },
+  { author: "Iuri Da Silva nunes", quote: "Ótimo atendimento com a doutora Mariana e a doutora Giovana me ajudaram na minha casa do aparelho e foi resolvido será indicadas por mim também um ótimo atendimento" },
 ];
 
 const navigation = [
@@ -139,27 +74,8 @@ const navigation = [
   ["Contato", "#contato"],
 ];
 
-function BrandMark({ compact = false }: { compact?: boolean }) {
-  return (
-    <span className="inline-flex items-center gap-3">
-      <span
-        aria-hidden="true"
-        className="grid size-11 shrink-0 place-items-center border border-brand-300/75 pr-1 font-serif text-[1.4rem] leading-none tracking-[-0.16em] text-brand-200"
-      >
-        EM
-      </span>
-      {!compact && (
-        <span className="flex flex-col leading-tight">
-          <span className="font-serif text-[1.2rem] tracking-[0.015em] text-white">
-            Elder Martins
-          </span>
-          <span className="mt-1 text-[8px] font-semibold uppercase tracking-[0.19em] text-white/55">
-            Advogados Associados
-          </span>
-        </span>
-      )}
-    </span>
-  );
+function BrandMark() {
+  return <Image src={logo} alt="Macedo & Reis Advocacia" width={2172} height={724} sizes="(max-width: 640px) 210px, 260px" className="h-auto w-[210px] sm:w-[260px]" />;
 }
 
 function InstagramMark({ size = 16 }: { size?: number }) {
@@ -223,6 +139,7 @@ function Heading({
 }
 
 export default function Home() {
+  const dialogRef = useRef<HTMLElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeArea, setActiveArea] = useState<
     (typeof practiceAreas)[number] | null
@@ -231,14 +148,25 @@ export default function Home() {
   useEffect(() => {
     if (!activeArea) return;
 
+    const previouslyFocused = document.activeElement as HTMLElement | null;
+    const focusTimer = window.setTimeout(() => dialogRef.current?.querySelector<HTMLButtonElement>("button")?.focus(), 0);
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     const closeOnEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") setActiveArea(null);
+      if (event.key === "Tab") {
+        const elements = dialogRef.current?.querySelectorAll<HTMLElement>('button, a[href]');
+        if (!elements?.length) return;
+        const first = elements[0], last = elements[elements.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
     };
 
     window.addEventListener("keydown", closeOnEscape);
     return () => {
+      window.clearTimeout(focusTimer);
+      previouslyFocused?.focus();
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", closeOnEscape);
     };
@@ -276,12 +204,12 @@ export default function Home() {
             </nav>
 
             <a
-              href={instagramUrl}
+              href={whatsappUrl}
               target="_blank"
               rel="noreferrer"
               className="hidden items-center gap-2 rounded-full border border-brand-300/60 px-5 py-3 text-[10px] font-semibold uppercase tracking-[0.13em] text-brand-100 transition-colors hover:border-brand-200 hover:bg-brand-300 hover:text-night lg:inline-flex"
             >
-              <InstagramMark size={15} /> Instagram
+              <MessageCircle size={15} /> Fale conosco
               <ArrowUpRight size={13} />
             </a>
 
@@ -321,12 +249,12 @@ export default function Home() {
                   ))}
                   <a
                     className="mt-3 inline-flex items-center justify-center gap-2 rounded-full bg-brand-300 px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.13em] text-night"
-                    href={instagramUrl}
+                    href={whatsappUrl}
                     target="_blank"
                     rel="noreferrer"
                     onClick={closeMenu}
                   >
-                    <InstagramMark size={15} /> Perfil do escritório
+                    <MessageCircle size={15} /> Conversar no WhatsApp
                   </a>
                 </div>
               </motion.nav>
@@ -349,35 +277,34 @@ export default function Home() {
                 className="relative z-10 max-w-2xl lg:py-6"
               >
                 <motion.p variants={reveal} className="eyebrow-light mb-7">
-                  ADVOCACIA ELDER MARTINS · ALFENAS, MG
+                  MACEDO & REIS · ADVOCACIA
                 </motion.p>
                 <motion.h1
                   variants={reveal}
-                  className="max-w-[730px] font-serif text-[3.25rem] leading-[0.98] tracking-[-0.045em] text-white sm:text-6xl lg:text-[5.05rem]"
+                  className="max-w-[730px] font-serif text-[2.85rem] leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl lg:text-[4.6rem]"
                 >
-                  Orientação jurídica com{" "}
-                  <em className="font-normal text-brand-300">clareza</em> e
-                  presença.
+                  Seu direito merece{" "}
+                  <em className="font-normal text-brand-300">atenção.</em><br />Sua história, respeito.
                 </motion.h1>
                 <motion.p
                   variants={reveal}
                   className="mt-7 max-w-xl text-[15px] leading-7 text-white/70 sm:text-base sm:leading-8"
                 >
-                  Atuação em diferentes áreas do Direito, com atenção às
-                  particularidades de cada demanda. Conheça a equipe e o
-                  escritório em Alfenas.
+                  Direito Trabalhista, Família e Consumidor. Uma advocacia próxima,
+                  que escuta sua história e orienta cada passo com clareza.
+                  De Passos, Minas Gerais, para todo o Brasil.
                 </motion.p>
                 <motion.div
                   variants={reveal}
                   className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
                 >
                   <a
-                    href={instagramUrl}
+                    href={whatsappUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-300 bg-brand-300 px-7 py-4 text-xs font-semibold uppercase tracking-[0.12em] text-night transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-brand-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand-200"
                   >
-                    <InstagramMark size={16} /> Fale com o escritório
+                    <MessageCircle size={16} /> Fale com as advogadas
                     <ArrowUpRight size={14} />
                   </a>
                   <a
@@ -397,11 +324,11 @@ export default function Home() {
                 >
                   <span className="inline-flex items-center gap-2">
                     <MapPin size={15} className="text-brand-300" />
-                    Alfenas · Minas Gerais
+                    Passos · Minas Gerais
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <Scale size={15} className="text-brand-300" />
-                    Atendimento jurídico
+                    Atendimento em todo o Brasil
                   </span>
                 </motion.div>
               </motion.div>
@@ -419,19 +346,19 @@ export default function Home() {
                 <div className="absolute -inset-3 -rotate-2 border border-brand-300/35 sm:-inset-4" />
                 <div className="relative aspect-[0.84] overflow-hidden bg-[#24221d]">
                   <Image
-                    src="/elder-martins/elder-martins.jpg"
-                    alt="Elder Martins em seu escritório"
+                    src={portrait}
+                    alt="As advogadas da Macedo & Reis juntas no escritório"
                     fill
                     sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 42vw"
-                    className="object-cover object-[50%_24%]"
+                    className="object-cover object-[50%_25%]"
                     preload
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-night/90 to-transparent" />
                   <figcaption className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-3 text-white sm:bottom-8 sm:left-8 sm:right-8">
                     <div>
-                      <p className="font-serif text-2xl">Elder Martins</p>
+                      <p className="font-serif text-2xl">Macedo & Reis</p>
                       <p className="mt-1 text-[10px] uppercase tracking-[0.17em] text-white/70">
-                        Advocacia · Alfenas, MG
+                        Advocacia · Passos, MG
                       </p>
                     </div>
                     <span className="grid size-11 shrink-0 place-items-center rounded-full border border-brand-200/70 text-brand-200">
@@ -439,7 +366,7 @@ export default function Home() {
                     </span>
                   </figcaption>
                 </div>
-                <div className="absolute -left-3 top-[15%] border border-white/10 bg-night px-4 py-2.5 text-[10px] font-medium tracking-[0.1em] text-white shadow-card sm:-left-9 sm:px-5">
+                <div className="absolute -left-3 bottom-[22%] border border-white/10 bg-night px-4 py-2.5 text-[10px] font-medium tracking-[0.1em] text-white shadow-card sm:-left-9 sm:px-5">
                   DIREITO COM ATENÇÃO A CADA HISTÓRIA
                 </div>
               </motion.figure>
@@ -452,9 +379,9 @@ export default function Home() {
           >
             <div className="mx-auto grid max-w-7xl gap-6 px-5 py-7 sm:grid-cols-3 sm:gap-4 sm:px-8 lg:px-12">
               {[
-                ["Alfenas", "sede do escritório"],
-                ["Três profissionais", "equipe apresentada"],
-                ["Seis frentes", "áreas informadas"],
+                ["Passos, MG", "nossa sede"],
+                ["Todo o Brasil", "atendimento jurídico"],
+                ["Escuta & clareza", "em cada etapa"],
               ].map(([value, label], index) => (
                 <div
                   key={value}
@@ -489,9 +416,9 @@ export default function Home() {
               >
                 <Heading
                   eyebrow="ÁREAS DE ATUAÇÃO"
-                  description="As áreas abaixo foram informadas pelo escritório. A análise e a orientação dependem das particularidades de cada situação."
+                  description="Orientação cuidadosa em três áreas que fazem parte da sua vida. Conheça como podemos acompanhar você."
                 >
-                  Atuação jurídica em diferentes momentos da vida.
+                  Cuidado jurídico para o que importa.
                 </Heading>
                 <span className="hidden h-px w-28 bg-brand-500/60 md:mb-3 md:block" />
               </motion.div>
@@ -532,7 +459,7 @@ export default function Home() {
                         {area.summary}
                       </p>
                       <span className="mt-6 inline-flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-brand-800">
-                        Ver áreas relacionadas
+                        Conheça o atendimento
                         <ArrowRight
                           size={14}
                           className="transition-transform group-hover:translate-x-1"
@@ -545,62 +472,21 @@ export default function Home() {
             </div>
           </section>
 
-          <section
-            id="equipe"
-            className="scroll-mt-24 bg-white py-20 sm:py-28 lg:py-32"
-          >
-            <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.18 }}
-                variants={reveal}
-              >
-                <Heading
-                  eyebrow="A EQUIPE"
-                  description="Profissionais e áreas de atuação apresentados pelo escritório."
-                >
-                  Pessoas à frente do atendimento.
-                </Heading>
-              </motion.div>
-
-              <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.12 }}
-                variants={stagger}
-                className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
-              >
-                {team.map((person, index) => (
-                  <motion.figure
-                    key={person.name}
-                    variants={reveal}
-                    className="group"
-                  >
-                    <div className="relative aspect-[0.86] overflow-hidden bg-[#ded8cc]">
-                      <Image
-                        src={person.image}
-                        alt={person.alt}
-                        fill
-                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 44vw, 30vw"
-                        className={`object-cover ${person.position} transition-transform duration-700 group-hover:scale-[1.025]`}
-                        loading="lazy"
-                      />
-                      <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-night/80 to-transparent" />
-                      <span className="absolute bottom-5 left-5 font-serif text-4xl text-white/90">
-                        0{index + 1}
-                      </span>
-                    </div>
-                    <figcaption className="border-b border-ink/15 py-5">
-                      <h3 className="font-serif text-[1.65rem] text-ink">
-                        {person.name}
-                      </h3>
-                      <p className="mt-2 text-[11px] leading-5 text-ink-soft">
-                        {person.role}
-                      </p>
-                    </figcaption>
-                  </motion.figure>
-                ))}
+          <section id="equipe" className="scroll-mt-24 bg-white py-20 sm:py-28 lg:py-32">
+            <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-12">
+              <motion.figure initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={reveal} className="relative">
+                <div className="relative aspect-[4/5] overflow-hidden bg-ivory">
+                  <Image src={portrait} alt="Equipe de advogadas da Macedo & Reis Advocacia" fill sizes="(max-width: 1024px) 90vw, 45vw" className="object-cover" />
+                </div>
+                <figcaption className="border-b border-brand-300 py-5 font-serif text-2xl">Macedo & Reis <span className="text-brand-700">/</span> Advocacia</figcaption>
+              </motion.figure>
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal}>
+                <Heading eyebrow="QUEM ESTÁ AO SEU LADO" description="Por trás de cada demanda, existe uma pessoa. É com essa atenção que conduzimos o nosso atendimento.">Proximidade para ouvir.<br /><em className="font-normal text-brand-700">Clareza para orientar.</em></Heading>
+                <p className="mt-6 text-[15px] leading-8 text-ink-soft">Somos a Macedo & Reis Advocacia. Nosso trabalho reúne escuta, análise cuidadosa e comunicação acessível para que você compreenda sua situação e participe das decisões sobre o seu caso.</p>
+                <div className="mt-9 space-y-5 border-t border-ink/10 pt-7">
+                  {["Atenção à sua história e às suas necessidades", "Orientação em uma linguagem que você entende", "Presença e cuidado ao longo do atendimento"].map((item) => <p key={item} className="flex items-start gap-3 text-sm leading-6"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-500" />{item}</p>)}
+                </div>
+                <a href={whatsappUrl} target="_blank" rel="noreferrer" className="mt-9 inline-flex items-center gap-3 border-b border-brand-600 pb-2 text-xs font-semibold uppercase tracking-widest text-brand-800">Converse com a equipe <ArrowUpRight size={16} /></a>
               </motion.div>
             </div>
           </section>
@@ -617,10 +503,10 @@ export default function Home() {
                 variants={reveal}
                 className="relative mx-auto w-full max-w-[570px]"
               >
-                <div className="relative aspect-[1.18] overflow-hidden bg-[#211e19]">
+                <div className="relative aspect-[0.95] overflow-hidden bg-[#211e19]">
                   <Image
-                    src="/elder-martins/equipe-elder-martins.jpg"
-                    alt="Integrantes da equipe em frente ao escritório"
+                    src={officePhoto}
+                    alt="Advogadas da Macedo & Reis analisando documentos no escritório"
                     fill
                     sizes="(max-width: 1024px) 90vw, 46vw"
                     className="object-cover object-[50%_48%]"
@@ -629,10 +515,10 @@ export default function Home() {
                 </div>
                 <figcaption className="absolute -bottom-5 left-5 border-l-2 border-brand-600 bg-white px-5 py-4 shadow-card sm:-left-6 sm:px-7">
                   <p className="font-serif text-xl text-ink">
-                    Alfenas, Minas Gerais
+                    Passos, Minas Gerais
                   </p>
                   <p className="mt-1 text-[11px] leading-5 text-ink-soft">
-                    Advocacia Elder Martins
+                    Macedo & Reis Advocacia
                   </p>
                 </figcaption>
                 <span className="absolute -right-3 -top-3 -z-10 size-20 border-r border-t border-brand-600/45 sm:-right-6 sm:-top-6 sm:size-28" />
@@ -657,27 +543,26 @@ export default function Home() {
                   variants={reveal}
                   className="mt-6 max-w-xl text-[15px] leading-7 text-ink-soft"
                 >
-                  A equipe Elder Martins reúne profissionais com atuação nas
-                  áreas trabalhista, empresarial, familiar, sucessória, civil e
-                  previdenciária. O primeiro passo é compreender o contexto e
-                  apresentar informações jurídicas de forma clara.
+                  Na Macedo & Reis, o atendimento começa pela escuta. Antes de falar
+                  sobre caminhos jurídicos, queremos entender sua história,
+                  suas dúvidas e o que é importante para você.
                 </motion.p>
                 <motion.p
                   variants={reveal}
                   className="mt-4 max-w-xl text-[15px] leading-7 text-ink-soft"
                 >
-                  O escritório está localizado em Alfenas, Minas Gerais. Para
-                  conhecer a equipe e acompanhar as informações publicadas,
-                  acesse os canais oficiais.
+                  Com sede no Centro de Passos e atendimento em todo o Brasil,
+                  unimos proximidade e orientação clara nas áreas Trabalhista,
+                  de Família e do Consumidor. Entre em contato para combinar seu atendimento.
                 </motion.p>
                 <motion.a
                   variants={reveal}
-                  href={instagramUrl}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="group mt-8 inline-flex items-center gap-2 border-b border-brand-700/40 pb-2 text-xs font-semibold uppercase tracking-[0.13em] text-brand-800 transition-colors hover:border-brand-700 hover:text-brand-700"
                 >
-                  Instagram do escritório
+                  Vamos conversar
                   <ArrowUpRight
                     size={15}
                     className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
@@ -695,7 +580,7 @@ export default function Home() {
               <div className="flex flex-col gap-7 border-b border-ink/10 pb-8 sm:flex-row sm:items-end sm:justify-between">
                 <Heading
                   eyebrow="AVALIAÇÕES PÚBLICAS"
-                  description="Alguns comentários de avaliações públicas compartilhadas sobre o atendimento da equipe."
+                  description="Relatos compartilhados por quem foi atendido pela equipe. Trechos de avaliações do Google fornecidas ao escritório."
                 >
                   A experiência no atendimento.
                 </Heading>
@@ -713,6 +598,7 @@ export default function Home() {
                 </a>
               </div>
 
+              <div className="mt-8 flex flex-wrap items-center gap-4"><span className="font-serif text-4xl text-ink">5,0</span><span className="flex gap-1 text-brand-700" aria-label="5 de 5 estrelas">{[1,2,3,4,5].map((star) => <Star key={star} size={16} fill="currentColor" />)}</span><p className="text-xs text-ink-soft">66 avaliações no Google · conforme dados fornecidos</p></div>
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -741,7 +627,7 @@ export default function Home() {
                         {author}
                       </span>
                       <span className="mt-1 block pl-8 text-[9px] font-semibold uppercase tracking-[0.15em] text-ink-soft">
-                        Avaliação pública no Google
+                        Trecho de avaliação no Google
                       </span>
                     </figcaption>
                   </motion.figure>
@@ -759,20 +645,22 @@ export default function Home() {
                 <Heading
                   eyebrow="CONTATO E LOCALIZAÇÃO"
                   light
-                  description="Encontre o endereço do escritório e acesse os canais oficiais de comunicação."
+                  description="Conte com uma escuta atenta. Fale com a equipe para combinar seu atendimento, de onde você estiver."
                 >
-                  Estamos em Alfenas.
+                  Seu próximo passo começa com uma conversa.
                 </Heading>
                 <div className="mt-9 flex flex-col items-start gap-4">
                   <a
-                    href={instagramUrl}
+                    href={whatsappUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-3 border-b border-brand-300/45 pb-3 text-sm text-brand-100 transition-colors hover:border-brand-200 hover:text-white"
                   >
-                    <InstagramMark size={17} /> Instagram do escritório
+                    <MessageCircle size={17} /> Conversar pelo WhatsApp
                     <ArrowUpRight size={14} />
                   </a>
+                  <a href="tel:+5535999599398" className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><Phone size={17} /> (35) 99959-9398</a>
+                  <a href={instagramUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><InstagramMark size={17} /> @adv.macedoereis <ArrowUpRight size={14} /></a>
                 </div>
               </div>
 
@@ -787,21 +675,21 @@ export default function Home() {
                       Endereço
                     </p>
                     <p className="mt-1 font-serif text-2xl text-white">
-                      Alfenas · MG
+                      Passos · MG
                     </p>
                   </div>
                 </div>
                 <address className="mt-7 max-w-md not-italic text-[14px] leading-7 text-white/70">
-                  R. Dr. Marcial Júnior, 150
+                  R. Rio Branco, 1116A
                   <br />
-                  Parque das Nações
+                  Centro
                   <br />
-                  Alfenas · MG · CEP 37130-000
+                  Passos · MG · CEP 37900-140
                 </address>
                 <div className="my-7 h-px bg-white/15" />
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <p className="text-xs text-white/60">
-                    Advocacia Elder Martins Advogados Associados
+                    Macedo & Reis Advocacia
                   </p>
                   <a
                     href={mapsUrl}
@@ -828,9 +716,8 @@ export default function Home() {
                 <BrandMark />
               </a>
               <p className="mt-4 max-w-xs text-xs leading-6 text-white/55">
-                Advocacia em Alfenas, Minas Gerais. Atuação informada nas áreas
-                trabalhista, empresarial, familiar, sucessória, civil e
-                previdenciária.
+                Direito Trabalhista, Família e Consumidor.
+                Em Passos, Minas Gerais, com atendimento em todo o Brasil.
               </p>
             </div>
             <div>
@@ -848,7 +735,7 @@ export default function Home() {
                   O escritório
                 </a>
                 <a className="footer-link" href="#avaliacoes">
-                  Informações públicas
+                  Avaliações
                 </a>
                 <a className="footer-link" href="#contato">
                   Contato
@@ -861,20 +748,22 @@ export default function Home() {
               </h2>
               <div className="mt-4 flex flex-col items-start gap-3 text-xs text-white/65">
                 <a
-                  href={instagramUrl}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="footer-link inline-flex items-center gap-2"
                 >
-                  <InstagramMark size={14} /> Instagram
+                  <MessageCircle size={14} /> WhatsApp
                 </a>
+                <a href={instagramUrl} target="_blank" rel="noreferrer" className="footer-link inline-flex items-center gap-2"><InstagramMark size={14} /> @adv.macedoereis</a>
+                <a href="tel:+5535999599398" className="footer-link inline-flex items-center gap-2"><Phone size={14} /> (35) 99959-9398</a>
                 <a
                   href={mapsUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="footer-link inline-flex items-start gap-2"
                 >
-                  <MapPin size={14} className="mt-0.5 shrink-0" /> Alfenas · MG
+                  <MapPin size={14} className="mt-0.5 shrink-0" /> Passos · MG
                 </a>
               </div>
             </div>
@@ -898,6 +787,7 @@ export default function Home() {
               onClick={() => setActiveArea(null)}
             >
               <motion.section
+                ref={dialogRef}
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="area-dialog-title"
@@ -941,12 +831,12 @@ export default function Home() {
                   ))}
                 </ul>
                 <a
-                  href={instagramUrl}
+                  href={whatsappUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-8 inline-flex items-center gap-2 rounded-full border border-brand-300 bg-brand-300 px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.12em] text-night transition-colors hover:bg-brand-200"
                 >
-                  <InstagramMark size={15} /> Acessar Instagram do escritório
+                  <MessageCircle size={15} /> Conversar sobre meu caso
                   <ArrowUpRight size={14} />
                 </a>
               </motion.section>

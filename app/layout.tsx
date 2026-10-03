@@ -16,37 +16,16 @@ const bodyFont = Plus_Jakarta_Sans({
   display: "swap",
 });
 
+const title = "Macedo & Reis Advocacia | Passos, MG";
+const description = "Direito Trabalhista, Família e Consumidor. Advocacia em Passos, Minas Gerais, com atendimento em todo o Brasil. Fale com nossa equipe pelo WhatsApp.";
+
 export const metadata: Metadata = {
-  applicationName: "Advocacia Elder Martins Advogados Associados",
-  title: "Elder Martins Advogados Associados | Alfenas, MG",
-  description:
-    "Advocacia Elder Martins Advogados Associados, em Alfenas, Minas Gerais. Conheça a equipe e as áreas de atuação do escritório.",
-  keywords: [
-    "Advocacia Elder Martins",
-    "Elder Martins Advogados Associados",
-    "advocacia em Alfenas",
-    "Direito do Trabalho",
-    "Direito Empresarial",
-    "Direito de Família",
-    "Sucessões",
-    "Direito Civil",
-    "Direito Previdenciário",
-  ],
+  applicationName: "Macedo & Reis Advocacia",
+  title, description,
+  keywords: ["Macedo & Reis Advocacia", "advocacia em Passos", "Direito Trabalhista", "Direito de Família", "Direito do Consumidor"],
   robots: { index: true, follow: true },
-  openGraph: {
-    type: "website",
-    locale: "pt_BR",
-    title: "Elder Martins Advogados Associados | Alfenas, MG",
-    description:
-      "Conheça a equipe e as áreas de atuação da Advocacia Elder Martins, em Alfenas, Minas Gerais.",
-    siteName: "Advocacia Elder Martins Advogados Associados",
-  },
-  twitter: {
-    card: "summary",
-    title: "Elder Martins Advogados Associados | Alfenas, MG",
-    description:
-      "Conheça a equipe e as áreas de atuação da Advocacia Elder Martins, em Alfenas, Minas Gerais.",
-  },
+  openGraph: { type: "website", locale: "pt_BR", title, description, siteName: "Macedo & Reis Advocacia" },
+  twitter: { card: "summary", title, description },
 };
 
 export default function RootLayout({
