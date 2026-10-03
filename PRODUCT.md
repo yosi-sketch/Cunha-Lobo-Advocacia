@@ -1,19 +1,19 @@
-# Macedo & Reis Advocacia
+# Reis e Borges Advogados
 
-Site institucional para apresentar a equipe, as áreas Trabalhista, Família e Consumidor e facilitar o contato pelo WhatsApp. Sede em Passos, Minas Gerais; atendimento em todo o Brasil, conforme dados fornecidos pelo cliente.
+## Direção visual
 
-## Identidade
+Dourado metálico e marfim do logo fornecido, sobre grafite frio. Amostragem dos pixels dourados encontrou como grupos predominantes #f0d0a0, #d0a070 e #f0d090. Tokens principais: dourado #d0a070, claro #f0d0a0, tom escuro acessível #805d32, grafite #101317 e superfície #f7f5ef. Cormorant Garamond nos títulos e Plus Jakarta Sans nos textos.
 
-Logo original, fotografia da equipe e registro do atendimento fornecidos pelo cliente. Paleta extraída dos pixels opacos do logo: bronze claro #e0b080, bronze profundo #805020 e marfim quente #fff0e0, com champagne #f0d8bf e fundo escuro #191410. Tipografia Cormorant Garamond e Plus Jakarta Sans.
+## Conteúdo
 
-## Experiência
+Direito Trabalhista e Cível, atendimento em Araxá e região. Apresentação do Dr. Fernando Reis com as fotografias enviadas, áreas com detalhes em modal, escritório, seis avaliações e contato. A nota 4,9 e as 145 avaliações reproduzem o material recebido. Telefone +55 (34) 98888-3335 confirmado pelo cliente. Endereço usa a grafia Gondim informada na descrição do Instagram.
 
-Abertura editorial, áreas de atuação com detalhes em modal, apresentação da equipe, escritório, avaliações e contato. Menu móvel, animações respeitando movimento reduzido, foco contido no modal e devolvido ao fechar. Links de WhatsApp com mensagem inicial, telefone, Instagram e localização.
+## Assets
 
-## Fontes de conteúdo
+Três fotografias fornecidas convertidas em WebP, sem geração de pessoas ou locais. A foto editorial da abertura tem enquadramento por CSS. Logo transparente preparado com a ferramenta integrada image_gen (modo de edição), salvo em public/reis-borges-logo.png.
 
-Nome, endereço, telefone, fotos, logo e avaliações enviados pelo cliente. Especialidades, abrangência nacional e Instagram confirmados na conversa. Depoimentos preservam a redação original; a avaliação de Tania é um trecho completo da parte fornecida. Não há promessa de resultado. Não foram informados e-mail, domínio definitivo, OAB ou horários completos.
+Prompt de edição: Use case: background-extraction. Asset type: existing law firm website logo. Remove only the baked-in gray checkerboard background and background decorative ghost lines. Preserve the exact RB monogram, fine vertical divider, metallic gold and ivory lettering, and exact words REIS E BORGES and ADVOGADOS ASSOCIADOS from the reference. Preserve the horizontal proportions and all typography. Genuine transparent alpha background, clean edges, no checkerboard, no new elements. Trim excessive empty margins while keeping every part of the original logo.
 
 ## Arquitetura
 
-Next.js 16 App Router, React 19, Tailwind CSS 4 e Framer Motion preservados. Tema central em app/globals.css. Imagens otimizadas com next/image. Metadados e ícones atualizados para a marca.
+Next.js 16, React 19, Tailwind 4 e Framer Motion. Estrutura de seções e mecanismos de animação do template preservados. Tema em app/globals.css, contatos em app/site-data.ts, conteúdo em app/page.tsx. Sem domínio, e-mail, horário ou registro profissional presumidos.

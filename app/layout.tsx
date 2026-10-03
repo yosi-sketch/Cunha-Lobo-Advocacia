@@ -16,15 +16,15 @@ const bodyFont = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const title = "Macedo & Reis Advocacia | Passos, MG";
-const description = "Direito Trabalhista, Família e Consumidor. Advocacia em Passos, Minas Gerais, com atendimento em todo o Brasil. Fale com nossa equipe pelo WhatsApp.";
+const title = "Reis e Borges Advocacia | Araxá, MG";
+const description = "Direito Trabalhista e Cível. Advocacia em Araxá, Minas Gerais, com atuação em Araxá e região. Fale com nossa equipe pelo WhatsApp.";
 
 export const metadata: Metadata = {
-  applicationName: "Macedo & Reis Advocacia",
+  applicationName: "Reis e Borges Advocacia",
   title, description,
-  keywords: ["Macedo & Reis Advocacia", "advocacia em Passos", "Direito Trabalhista", "Direito de Família", "Direito do Consumidor"],
+  keywords: ["Reis e Borges Advocacia", "advocacia em Araxá", "Direito Trabalhista", "Direito Cível", "advogado em Araxá"],
   robots: { index: true, follow: true },
-  openGraph: { type: "website", locale: "pt_BR", title, description, siteName: "Macedo & Reis Advocacia" },
+  openGraph: { type: "website", locale: "pt_BR", title, description, siteName: "Reis e Borges Advocacia" },
   twitter: { card: "summary", title, description },
 };
 

@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import logo from "../public/macedo-reis-logo.png";
+import { office } from "./site-data";
+import logo from "../public/reis-borges-logo.png";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   AnimatePresence,
@@ -19,17 +20,15 @@ import {
   MapPin,
   Menu,
   Scale,
-  UsersRound,
   X,
 } from "lucide-react";
 
-const officeName = "Macedo & Reis Advocacia";
-const instagramUrl = "https://www.instagram.com/adv.macedoereis/";
-const whatsappUrl = "https://wa.me/5535999599398?text=" + encodeURIComponent("Olá! Gostaria de conversar com a equipe Macedo & Reis sobre um atendimento jurídico.");
-const officeAddress = "R. Rio Branco, 1116A - Centro, Passos - MG, 37900-140";
-const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${officeName}, ${officeAddress}`)}`;
-const portrait = "/imgi_35_619419069_18088418261513195_5836168838757973608_n.jpg";
-const officePhoto = "/imgi_55_623391273_18202438261329514_1517017475295242263_n.jpg";
+const officeName = office.name;
+const instagramUrl = office.instagram;
+const whatsappUrl = office.whatsapp;
+const mapsUrl = office.maps;
+const portrait = "/fernando-reis-retrato.webp";
+const officePhoto = "/fernando-reis-atendimento.webp";
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 22 },
@@ -46,24 +45,23 @@ const stagger: Variants = {
 };
 
 const practiceAreas = [
-  { number: "01", title: "Direito Trabalhista", icon: BriefcaseBusiness, lead: "Cuidado com suas relações de trabalho",
-    areas: ["Orientação sobre relações de trabalho", "Análise de documentos e demandas", "Acompanhamento jurídico"],
-    summary: "Clareza para compreender seus direitos e tomar decisões sobre as relações de trabalho.",
-    details: "Cada relação de trabalho tem uma história. A equipe escuta sua demanda e analisa as informações e os documentos apresentados para orientar os próximos passos de acordo com o seu caso." },
-  { number: "02", title: "Direito de Família", icon: UsersRound, lead: "Sensibilidade em momentos importantes",
-    areas: ["Orientação em questões familiares", "Análise individual da situação", "Acompanhamento próximo"],
-    summary: "Escuta e orientação jurídica para lidar com questões familiares com o cuidado que elas merecem.",
-    details: "Questões familiares pedem atenção às pessoas envolvidas. O atendimento busca compreender o contexto da sua família, esclarecer dúvidas e apresentar os caminhos jurídicos aplicáveis à situação." },
-  { number: "03", title: "Direito do Consumidor", icon: Scale, lead: "Atenção às suas relações de consumo",
-    areas: ["Dúvidas sobre produtos e serviços", "Análise da relação de consumo", "Orientação sobre os próximos passos"],
-    summary: "Apoio para entender seus direitos nas relações com fornecedores de produtos e serviços.",
-    details: "Se uma relação de consumo trouxe dúvidas ou dificuldades, o primeiro passo é entender o que aconteceu. A equipe analisa seu relato e os documentos disponíveis para orientar a condução da demanda." },
+  { number: "01", title: "Direito Trabalhista", icon: BriefcaseBusiness, lead: "Sua trajetória profissional merece cuidado",
+    areas: ["Análise de contratos e documentos de trabalho", "Orientação sobre verbas rescisórias e jornada", "Acompanhamento de demandas trabalhistas"],
+    summary: "Entenda sua relação de trabalho, esclareça dúvidas e conte com orientação para conduzir cada etapa da sua demanda.",
+    details: "Uma dúvida no trabalho pode afetar seus planos e sua tranquilidade. Na Reis e Borges, o atendimento começa com a escuta do seu relato e a análise dos documentos. A partir daí, apresentamos os caminhos aplicáveis à sua situação, com clareza sobre as próximas etapas." },
+  { number: "02", title: "Direito Cível", icon: Scale, lead: "Atenção às relações que fazem parte da sua vida",
+    areas: ["Análise de contratos e obrigações", "Orientação sobre conflitos e responsabilidade civil", "Acompanhamento de demandas cíveis"],
+    summary: "Apoio jurídico para lidar com contratos, responsabilidades e conflitos cotidianos, com atenção ao que importa para você.",
+    details: "As relações do dia a dia podem trazer questões que precisam de um olhar jurídico cuidadoso. Avaliamos o contexto, os documentos e os interesses envolvidos para explicar as possibilidades de encaminhamento, seja na busca de uma solução consensual ou no acompanhamento de uma demanda." },
 ];
 
 const reviews = [
-  { author: "Tania Diniz", quote: "No meu caso fui atendida pela Dra Mariana, que desde o primeiro momento se mostrou receptiva e muito cordial para me atender." },
-  { author: "Talita Vitória", quote: "Excelente trabalho e excelente profissional. Estou satisfeita com tudo, sou grata por ter solucionando meu problema. Super indico heim!!!" },
-  { author: "Iuri Da Silva nunes", quote: "Ótimo atendimento com a doutora Mariana e a doutora Giovana me ajudaram na minha casa do aparelho e foi resolvido será indicadas por mim também um ótimo atendimento" },
+  { author: "Eric De Paula", quote: "Pessoal muito profissional e excelente atendimento." },
+  { author: "Kamilla Ribeiro", quote: "Excelente atendimento, são bem atenciosos." },
+  { author: "Breno Amaral", quote: "Atendimento humanizado, toda equipe muito atenciosa, trabalho impecável!" },
+  { author: "Alexandra Ribeiro", quote: "Quero agradecer ao Dr. Fernando Reis pelo excelente atendimento! Foi muito eficiente, ágil e atencioso em todo o processo. Recomendo seus serviços pela competência e profissionalismo." },
+  { author: "Rugieri Gonçalves", quote: "Excelente atendimento, Fernando é muito direto e se comunica de forma clara, o que facilita o entendimento, atencioso, e pró-ativo, recomendo." },
+  { author: "Prime Store", quote: "Atendimento excepcional, desde a recepção até a conversa com o Dr. Fernando, explicações claras e coesas!!" },
 ];
 
 const navigation = [
@@ -75,7 +73,7 @@ const navigation = [
 ];
 
 function BrandMark() {
-  return <Image src={logo} alt="Macedo & Reis Advocacia" width={2172} height={724} sizes="(max-width: 640px) 210px, 260px" className="h-auto w-[210px] sm:w-[260px]" />;
+  return <Image src={logo} alt="Reis e Borges Advocacia"  sizes="(max-width: 640px) 210px, 260px" className="h-auto w-[210px] sm:w-[260px]" />;
 }
 
 function InstagramMark({ size = 16 }: { size?: number }) {
@@ -277,22 +275,22 @@ export default function Home() {
                 className="relative z-10 max-w-2xl lg:py-6"
               >
                 <motion.p variants={reveal} className="eyebrow-light mb-7">
-                  MACEDO & REIS · ADVOCACIA
+                  REIS E BORGES · ADVOGADOS ASSOCIADOS
                 </motion.p>
                 <motion.h1
                   variants={reveal}
                   className="max-w-[730px] font-serif text-[2.85rem] leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl lg:text-[4.6rem]"
                 >
-                  Seu direito merece{" "}
-                  <em className="font-normal text-brand-300">atenção.</em><br />Sua história, respeito.
+                  Clareza para decidir.<br />Compromisso para{" "}
+                  <em className="font-normal text-brand-300">defender.</em>
                 </motion.h1>
                 <motion.p
                   variants={reveal}
                   className="mt-7 max-w-xl text-[15px] leading-7 text-white/70 sm:text-base sm:leading-8"
                 >
-                  Direito Trabalhista, Família e Consumidor. Uma advocacia próxima,
+                  Direito Trabalhista e Cível. Uma advocacia próxima,
                   que escuta sua história e orienta cada passo com clareza.
-                  De Passos, Minas Gerais, para todo o Brasil.
+                  Em Araxá e região, com atenção a cada detalhe do seu caso.
                 </motion.p>
                 <motion.div
                   variants={reveal}
@@ -304,7 +302,7 @@ export default function Home() {
                     rel="noreferrer"
                     className="inline-flex items-center justify-center gap-2 rounded-full border border-brand-300 bg-brand-300 px-7 py-4 text-xs font-semibold uppercase tracking-[0.12em] text-night transition-all duration-200 hover:-translate-y-0.5 hover:border-brand-200 hover:bg-brand-200 focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-brand-200"
                   >
-                    <MessageCircle size={16} /> Fale com as advogadas
+                    <MessageCircle size={16} /> Agende uma conversa
                     <ArrowUpRight size={14} />
                   </a>
                   <a
@@ -324,11 +322,11 @@ export default function Home() {
                 >
                   <span className="inline-flex items-center gap-2">
                     <MapPin size={15} className="text-brand-300" />
-                    Passos · Minas Gerais
+                    Araxá · Minas Gerais
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <Scale size={15} className="text-brand-300" />
-                    Atendimento em todo o Brasil
+                    Araxá e região
                   </span>
                 </motion.div>
               </motion.div>
@@ -344,21 +342,21 @@ export default function Home() {
                 className="relative mx-auto w-full max-w-[490px] lg:ml-auto lg:mr-2"
               >
                 <div className="absolute -inset-3 -rotate-2 border border-brand-300/35 sm:-inset-4" />
-                <div className="relative aspect-[0.84] overflow-hidden bg-[#24221d]">
+                <div className="relative aspect-[0.84] overflow-hidden bg-[#14171b]">
                   <Image
                     src={portrait}
-                    alt="As advogadas da Macedo & Reis juntas no escritório"
+                    alt="Dr. Fernando Reis, da Reis e Borges Advogados"
                     fill
                     sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 42vw"
-                    className="object-cover object-[50%_25%]"
+                    className="hero-portrait object-cover object-right-top"
                     preload
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-night/90 to-transparent" />
                   <figcaption className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-3 text-white sm:bottom-8 sm:left-8 sm:right-8">
                     <div>
-                      <p className="font-serif text-2xl">Macedo & Reis</p>
+                      <p className="font-serif text-2xl">Reis e Borges</p>
                       <p className="mt-1 text-[10px] uppercase tracking-[0.17em] text-white/70">
-                        Advocacia · Passos, MG
+                        Advocacia · Araxá, MG
                       </p>
                     </div>
                     <span className="grid size-11 shrink-0 place-items-center rounded-full border border-brand-200/70 text-brand-200">
@@ -367,7 +365,7 @@ export default function Home() {
                   </figcaption>
                 </div>
                 <div className="absolute -left-3 bottom-[22%] border border-white/10 bg-night px-4 py-2.5 text-[10px] font-medium tracking-[0.1em] text-white shadow-card sm:-left-9 sm:px-5">
-                  DIREITO COM ATENÇÃO A CADA HISTÓRIA
+                  ESCUTA. CLAREZA. COMPROMISSO.
                 </div>
               </motion.figure>
             </div>
@@ -379,8 +377,8 @@ export default function Home() {
           >
             <div className="mx-auto grid max-w-7xl gap-6 px-5 py-7 sm:grid-cols-3 sm:gap-4 sm:px-8 lg:px-12">
               {[
-                ["Passos, MG", "nossa sede"],
-                ["Todo o Brasil", "atendimento jurídico"],
+                ["Araxá, MG", "nossa sede"],
+                ["Trabalhista & Cível", "nossas áreas de atuação"],
                 ["Escuta & clareza", "em cada etapa"],
               ].map(([value, label], index) => (
                 <div
@@ -416,9 +414,9 @@ export default function Home() {
               >
                 <Heading
                   eyebrow="ÁREAS DE ATUAÇÃO"
-                  description="Orientação cuidadosa em três áreas que fazem parte da sua vida. Conheça como podemos acompanhar você."
+                  description="Do trabalho às relações do dia a dia, orientação para compreender seus direitos e decidir com segurança."
                 >
-                  Cuidado jurídico para o que importa.
+                  Seus direitos, vistos de perto.
                 </Heading>
                 <span className="hidden h-px w-28 bg-brand-500/60 md:mb-3 md:block" />
               </motion.div>
@@ -428,7 +426,7 @@ export default function Home() {
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.12 }}
                 variants={stagger}
-                className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-3"
+                className="mt-12 grid gap-4 sm:grid-cols-2 lg:mt-14 lg:grid-cols-2"
               >
                 {practiceAreas.map((area) => {
                   const Icon = area.icon;
@@ -476,13 +474,13 @@ export default function Home() {
             <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-12">
               <motion.figure initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={reveal} className="relative">
                 <div className="relative aspect-[4/5] overflow-hidden bg-ivory">
-                  <Image src={portrait} alt="Equipe de advogadas da Macedo & Reis Advocacia" fill sizes="(max-width: 1024px) 90vw, 45vw" className="object-cover" />
+                  <Image src="/fernando-reis-mensagem.webp" alt="Dr. Fernando Reis. Advogar é olhar adiante por quem, naquele momento, não consegue." fill sizes="(max-width: 1024px) 90vw, 45vw" className="object-cover" />
                 </div>
-                <figcaption className="border-b border-brand-300 py-5 font-serif text-2xl">Macedo & Reis <span className="text-brand-700">/</span> Advocacia</figcaption>
+                <figcaption className="border-b border-brand-300 py-5 font-serif text-2xl">Fernando Reis <span className="text-brand-700">/</span> Advogado</figcaption>
               </motion.figure>
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal}>
-                <Heading eyebrow="QUEM ESTÁ AO SEU LADO" description="Por trás de cada demanda, existe uma pessoa. É com essa atenção que conduzimos o nosso atendimento.">Proximidade para ouvir.<br /><em className="font-normal text-brand-700">Clareza para orientar.</em></Heading>
-                <p className="mt-6 text-[15px] leading-8 text-ink-soft">Somos a Macedo & Reis Advocacia. Nosso trabalho reúne escuta, análise cuidadosa e comunicação acessível para que você compreenda sua situação e participe das decisões sobre o seu caso.</p>
+                <Heading eyebrow="QUEM ESTÁ AO SEU LADO" description="Uma orientação jurídica começa por entender quem está do outro lado da conversa.">Proximidade para ouvir.<br /><em className="font-normal text-brand-700">Clareza para orientar.</em></Heading>
+                <p className="mt-6 text-[15px] leading-8 text-ink-soft">Dr. Fernando Reis acredita em uma advocacia que aproxima: ouvir com atenção, explicar com clareza e acompanhar com responsabilidade. Na Reis e Borges, a análise técnica caminha com uma escuta atenta, para que você compreenda sua situação e participe das decisões sobre o seu caso.</p>
                 <div className="mt-9 space-y-5 border-t border-ink/10 pt-7">
                   {["Atenção à sua história e às suas necessidades", "Orientação em uma linguagem que você entende", "Presença e cuidado ao longo do atendimento"].map((item) => <p key={item} className="flex items-start gap-3 text-sm leading-6"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-500" />{item}</p>)}
                 </div>
@@ -493,7 +491,7 @@ export default function Home() {
 
           <section
             id="escritorio"
-            className="scroll-mt-24 bg-[#efede7] py-20 sm:py-28 lg:py-32"
+            className="scroll-mt-24 bg-[#eeeae2] py-20 sm:py-28 lg:py-32"
           >
             <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:px-12">
               <motion.figure
@@ -503,10 +501,10 @@ export default function Home() {
                 variants={reveal}
                 className="relative mx-auto w-full max-w-[570px]"
               >
-                <div className="relative aspect-[0.95] overflow-hidden bg-[#211e19]">
+                <div className="relative aspect-[0.95] overflow-hidden bg-[#14171b]">
                   <Image
                     src={officePhoto}
-                    alt="Advogadas da Macedo & Reis analisando documentos no escritório"
+                    alt="Dr. Fernando Reis durante uma conversa no escritório"
                     fill
                     sizes="(max-width: 1024px) 90vw, 46vw"
                     className="object-cover object-[50%_48%]"
@@ -515,10 +513,10 @@ export default function Home() {
                 </div>
                 <figcaption className="absolute -bottom-5 left-5 border-l-2 border-brand-600 bg-white px-5 py-4 shadow-card sm:-left-6 sm:px-7">
                   <p className="font-serif text-xl text-ink">
-                    Passos, Minas Gerais
+                    Araxá, Minas Gerais
                   </p>
                   <p className="mt-1 text-[11px] leading-5 text-ink-soft">
-                    Macedo & Reis Advocacia
+                    Reis e Borges Advocacia
                   </p>
                 </figcaption>
                 <span className="absolute -right-3 -top-3 -z-10 size-20 border-r border-t border-brand-600/45 sm:-right-6 sm:-top-6 sm:size-28" />
@@ -537,13 +535,13 @@ export default function Home() {
                   variants={reveal}
                   className="mt-4 max-w-2xl font-serif text-4xl leading-[1.07] tracking-[-0.035em] text-ink sm:text-5xl lg:text-[3.55rem]"
                 >
-                  Uma conversa atenta é o começo.
+                  Em Araxá, perto de você.
                 </motion.h2>
                 <motion.p
                   variants={reveal}
                   className="mt-6 max-w-xl text-[15px] leading-7 text-ink-soft"
                 >
-                  Na Macedo & Reis, o atendimento começa pela escuta. Antes de falar
+                  Na Reis e Borges, o atendimento começa pela escuta. Antes de falar
                   sobre caminhos jurídicos, queremos entender sua história,
                   suas dúvidas e o que é importante para você.
                 </motion.p>
@@ -551,9 +549,9 @@ export default function Home() {
                   variants={reveal}
                   className="mt-4 max-w-xl text-[15px] leading-7 text-ink-soft"
                 >
-                  Com sede no Centro de Passos e atendimento em todo o Brasil,
-                  unimos proximidade e orientação clara nas áreas Trabalhista,
-                  de Família e do Consumidor. Entre em contato para combinar seu atendimento.
+                  Com sede no Centro de Araxá e atuação na região,
+                  unimos proximidade e orientação clara nas áreas Trabalhista
+                  e Cível. Entre em contato para agendar uma conversa.
                 </motion.p>
                 <motion.a
                   variants={reveal}
@@ -580,7 +578,7 @@ export default function Home() {
               <div className="flex flex-col gap-7 border-b border-ink/10 pb-8 sm:flex-row sm:items-end sm:justify-between">
                 <Heading
                   eyebrow="AVALIAÇÕES PÚBLICAS"
-                  description="Relatos compartilhados por quem foi atendido pela equipe. Trechos de avaliações do Google fornecidas ao escritório."
+                  description="Relatos compartilhados por quem foi atendido pela equipe. Avaliações do Google reunidas no material do escritório."
                 >
                   A experiência no atendimento.
                 </Heading>
@@ -598,7 +596,7 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4"><span className="font-serif text-4xl text-ink">5,0</span><span className="flex gap-1 text-brand-700" aria-label="5 de 5 estrelas">{[1,2,3,4,5].map((star) => <Star key={star} size={16} fill="currentColor" />)}</span><p className="text-xs text-ink-soft">66 avaliações no Google · conforme dados fornecidos</p></div>
+              <div className="mt-8 flex flex-wrap items-center gap-4"><span className="font-serif text-4xl text-ink">4,9</span><span className="flex gap-1 text-brand-700" aria-label="Nota 4,9 de 5">{[1,2,3,4,5].map((star) => <Star key={star} size={16} fill="currentColor" />)}</span><p className="text-xs text-ink-soft">145 avaliações no Google · conforme dados fornecidos</p></div>
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -645,7 +643,7 @@ export default function Home() {
                 <Heading
                   eyebrow="CONTATO E LOCALIZAÇÃO"
                   light
-                  description="Conte com uma escuta atenta. Fale com a equipe para combinar seu atendimento, de onde você estiver."
+                  description="Conte com uma escuta atenta. Fale com a equipe para combinar seu atendimento, em Araxá e região."
                 >
                   Seu próximo passo começa com uma conversa.
                 </Heading>
@@ -659,8 +657,8 @@ export default function Home() {
                     <MessageCircle size={17} /> Conversar pelo WhatsApp
                     <ArrowUpRight size={14} />
                   </a>
-                  <a href="tel:+5535999599398" className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><Phone size={17} /> (35) 99959-9398</a>
-                  <a href={instagramUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><InstagramMark size={17} /> @adv.macedoereis <ArrowUpRight size={14} /></a>
+                  <a href={office.telephone} className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><Phone size={17} /> (34) 98888-3335</a>
+                  <a href={instagramUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><InstagramMark size={17} /> @reiseborges.advogados <ArrowUpRight size={14} /></a>
                 </div>
               </div>
 
@@ -675,21 +673,21 @@ export default function Home() {
                       Endereço
                     </p>
                     <p className="mt-1 font-serif text-2xl text-white">
-                      Passos · MG
+                      Araxá · MG
                     </p>
                   </div>
                 </div>
                 <address className="mt-7 max-w-md not-italic text-[14px] leading-7 text-white/70">
-                  R. Rio Branco, 1116A
+                  Rua Alexandre Gondim, 67
                   <br />
                   Centro
                   <br />
-                  Passos · MG · CEP 37900-140
+                  Araxá · MG · CEP 38183-100
                 </address>
                 <div className="my-7 h-px bg-white/15" />
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <p className="text-xs text-white/60">
-                    Macedo & Reis Advocacia
+                    Reis e Borges Advocacia
                   </p>
                   <a
                     href={mapsUrl}
@@ -705,7 +703,7 @@ export default function Home() {
           </section>
         </div>
 
-        <footer className="bg-[#090a08] px-5 py-12 text-white sm:px-8 lg:px-12">
+        <footer className="bg-[#090b0d] px-5 py-12 text-white sm:px-8 lg:px-12">
           <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_1fr]">
             <div>
               <a
@@ -716,8 +714,8 @@ export default function Home() {
                 <BrandMark />
               </a>
               <p className="mt-4 max-w-xs text-xs leading-6 text-white/55">
-                Direito Trabalhista, Família e Consumidor.
-                Em Passos, Minas Gerais, com atendimento em todo o Brasil.
+                Direito Trabalhista e Cível.
+                Atendimento em Araxá, Minas Gerais, e região.
               </p>
             </div>
             <div>
@@ -755,15 +753,15 @@ export default function Home() {
                 >
                   <MessageCircle size={14} /> WhatsApp
                 </a>
-                <a href={instagramUrl} target="_blank" rel="noreferrer" className="footer-link inline-flex items-center gap-2"><InstagramMark size={14} /> @adv.macedoereis</a>
-                <a href="tel:+5535999599398" className="footer-link inline-flex items-center gap-2"><Phone size={14} /> (35) 99959-9398</a>
+                <a href={instagramUrl} target="_blank" rel="noreferrer" className="footer-link inline-flex items-center gap-2"><InstagramMark size={14} /> @reiseborges.advogados</a>
+                <a href="tel:+5534988883335" className="footer-link inline-flex items-center gap-2"><Phone size={14} /> (34) 98888-3335</a>
                 <a
                   href={mapsUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="footer-link inline-flex items-start gap-2"
                 >
-                  <MapPin size={14} className="mt-0.5 shrink-0" /> Passos · MG
+                  <MapPin size={14} className="mt-0.5 shrink-0" /> Araxá · MG
                 </a>
               </div>
             </div>

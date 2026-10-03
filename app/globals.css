@@ -2,34 +2,34 @@
 
 :root {
   color-scheme: light;
-  --brand-gold: #e0b080;
-  --brand-gold-light: #f0d8bf;
-  --brand-gold-dark: #805020;
-  --brand-ink: #29221d;
-  --brand-ink-soft: #74685e;
-  --brand-ivory: #faf5ee;
+  --brand-gold: #d0a070;
+  --brand-gold-light: #f0d0a0;
+  --brand-gold-dark: #805d32;
+  --brand-ink: #20242a;
+  --brand-ink-soft: #66645f;
+  --brand-ivory: #f7f5ef;
   --brand-paper: #ffffff;
-  --brand-night: #191410;
+  --brand-night: #101317;
 }
 
 @theme inline {
   --font-serif: var(--font-display), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  --color-night: #191410;
-  --color-ink: #29221d;
-  --color-ink-soft: #74685e;
-  --color-ivory: #faf5ee;
+  --color-night: #101317;
+  --color-ink: #20242a;
+  --color-ink-soft: #66645f;
+  --color-ivory: #f7f5ef;
   --color-brand-50: #fdfaf6;
-  --color-brand-100: #fff0e0;
-  --color-brand-200: #f0d0ad;
-  --color-brand-300: #e0b080;
-  --color-brand-400: #cb9865;
-  --color-brand-500: #b67d49;
-  --color-brand-600: #9b6635;
-  --color-brand-700: #805020;
-  --color-brand-800: #68401f;
-  --color-brand-900: #492b17;
-  --color-brand-950: #2d1c11;
+  --color-brand-100: #faf0dc;
+  --color-brand-200: #f0d0a0;
+  --color-brand-300: #d0a070;
+  --color-brand-400: #c4955c;
+  --color-brand-500: #ac7d43;
+  --color-brand-600: #936a37;
+  --color-brand-700: #805d32;
+  --color-brand-800: #664b2e;
+  --color-brand-900: #443523;
+  --color-brand-950: #29231b;
   --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.1);
 }
 
@@ -172,3 +172,6 @@ body {
 
 :focus-visible { outline: 2px solid var(--brand-gold-dark); outline-offset: 5px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
+
+/* Frame the supplied editorial portrait without altering the original photo. */
+.hero-portrait { width: 177.65% !important; max-width: none; left: auto !important; }

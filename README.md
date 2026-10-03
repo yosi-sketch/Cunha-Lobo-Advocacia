@@ -1,21 +1,27 @@
-# Macedo & Reis Advocacia
+# Reis e Borges Advogados
 
-Site institucional com sede em Passos, MG, e atendimento em todo o Brasil.
+Site institucional de Direito Trabalhista e Cível em Araxá e região.
 
 ## Desenvolvimento
 
-- Instale as dependências: npm install
-- Ambiente local: npm run dev
-- Validação: npm run lint e npm run build
+- Instalar: `npm install`
+- Iniciar: `npm run dev`
+- Validar: `npm run lint` e `npm run build`
 
-Next.js 16 App Router, React 19, Tailwind CSS 4 e Framer Motion. O tema está em app/globals.css, com tokens bronze, champagne e marfim derivados do logo fornecido. Imagens locais são servidas pelo otimizador do Next.js; a foto principal usa preload. Fontes são otimizadas com next/font.
+Next.js 16 App Router, React 19, Tailwind CSS 4 e Framer Motion preservados. O Tailwind 4 usa `@theme inline` em `app/globals.css`; não há configuração legada do Tailwind. Fontes otimizadas com next/font, imagens WebP locais com next/image, preload do retrato principal e carregamento tardio das imagens secundárias.
 
-## Conteúdo
+## Conteúdo e contatos
 
-Direito Trabalhista, Família e Consumidor. Contatos, fotos, serviços e depoimentos ficam em app/page.tsx; metadados em app/layout.tsx.
+Conteúdo em `app/page.tsx`, destinos dos contatos em `app/site-data.ts`, metadados em `app/layout.tsx`.
 
-- WhatsApp: https://wa.me/5535999599398
-- Instagram: https://www.instagram.com/adv.macedoereis/
-- Endereço: R. Rio Branco, 1116A - Centro, Passos - MG, 37900-140.
+- WhatsApp confirmado pelo cliente: +55 (34) 98888-3335 — https://wa.me/5534988883335
+- Instagram: https://www.instagram.com/reiseborges.advogados/
+- Endereço: Rua Alexandre Gondim, 67, Centro, Araxá - MG, CEP 38183-100.
 
-Fotos e logo originais estão em public. As avaliações são trechos dos relatos fornecidos pelo cliente; a nota 5,0 e as 66 avaliações refletem esse material, sem atualização automática. Não foi fornecido e-mail. Não há credenciais, números de OAB ou horários inventados.
+As três fotografias fornecidas estão em `public`, otimizadas para WebP. O retrato principal tem enquadramento por CSS; a fotografia original não foi alterada. A versão transparente do logo está em `public/reis-borges-logo.png`.
+
+Avaliações: 4,9/5 e 145 avaliações, conforme material fornecido pelo cliente, sem atualização automática. Os seis depoimentos preservam a redação enviada. E-mail, OAB, horários e domínio definitivo não foram fornecidos e não são inventados.
+
+## Acessibilidade
+
+Menu responsivo, link para pular ao conteúdo, foco visível, modais com contenção e restauração de foco, fechamento por Escape e preferências de movimento reduzido respeitadas.

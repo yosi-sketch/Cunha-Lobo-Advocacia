@@ -13,7 +13,7 @@ export default function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          background: "#191410",
+          background: "#101317",
         }}
       >
         <div
@@ -23,9 +23,9 @@ export default function AppleIcon() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            border: "2px solid #e0b080",
+            border: "2px solid #d0a070",
             borderRadius: "22px",
-            color: "#f0d8bf",
+            color: "#f0d0a0",
             fontFamily: "Georgia, serif",
             fontSize: "70px",
             fontWeight: 700,
@@ -33,7 +33,7 @@ export default function AppleIcon() {
             paddingRight: "10px",
           }}
         >
-          MR
+          RB
         </div>
       </div>
     ),
