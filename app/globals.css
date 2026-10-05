@@ -2,34 +2,34 @@
 
 :root {
   color-scheme: light;
-  --brand-gold: #d0a070;
+  --brand-gold: #c5a16b;
   --brand-gold-light: #f0d0a0;
-  --brand-gold-dark: #805d32;
-  --brand-ink: #20242a;
-  --brand-ink-soft: #66645f;
-  --brand-ivory: #f7f5ef;
+  --brand-gold-dark: #795a2c;
+  --brand-ink: #29241f;
+  --brand-ink-soft: #6b6259;
+  --brand-ivory: #f8f5ef;
   --brand-paper: #ffffff;
-  --brand-night: #101317;
+  --brand-night: #1c1917;
 }
 
 @theme inline {
   --font-serif: var(--font-display), "Cormorant Garamond", Georgia, serif;
   --font-sans: var(--font-body), "Plus Jakarta Sans", system-ui, sans-serif;
-  --color-night: #101317;
-  --color-ink: #20242a;
-  --color-ink-soft: #66645f;
-  --color-ivory: #f7f5ef;
-  --color-brand-50: #fdfaf6;
-  --color-brand-100: #faf0dc;
+  --color-night: #1c1917;
+  --color-ink: #29241f;
+  --color-ink-soft: #6b6259;
+  --color-ivory: #f8f5ef;
+  --color-brand-50: #fcfaf6;
+  --color-brand-100: #f8edd7;
   --color-brand-200: #f0d0a0;
-  --color-brand-300: #d0a070;
-  --color-brand-400: #c4955c;
-  --color-brand-500: #ac7d43;
-  --color-brand-600: #936a37;
-  --color-brand-700: #805d32;
-  --color-brand-800: #664b2e;
-  --color-brand-900: #443523;
-  --color-brand-950: #29231b;
+  --color-brand-300: #c5a16b;
+  --color-brand-400: #b48e54;
+  --color-brand-500: #a07b43;
+  --color-brand-600: #8d6935;
+  --color-brand-700: #795a2c;
+  --color-brand-800: #604727;
+  --color-brand-900: #423223;
+  --color-brand-950: #151210;
   --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.1);
 }
 
@@ -171,7 +171,6 @@ body {
 }
 
 :focus-visible { outline: 2px solid var(--brand-gold-dark); outline-offset: 5px; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary:hover { color: var(--brand-gold-dark); }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; } }
-
-/* Frame the supplied editorial portrait without altering the original photo. */
-.hero-portrait { width: 177.65% !important; max-width: none; left: auto !important; }

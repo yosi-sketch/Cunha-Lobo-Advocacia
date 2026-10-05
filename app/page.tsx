@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { office } from "./site-data";
-import logo from "../public/reis-borges-logo.png";
+import logo from "../public/cunha-lobo-logo.png";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import {
   AnimatePresence,
@@ -13,7 +13,9 @@ import {
 import {
   ArrowRight,
   ArrowUpRight,
-  BriefcaseBusiness,
+  CarFront,
+  FileText,
+  ShieldCheck,
   MessageCircle,
   Phone,
   Star,
@@ -27,8 +29,8 @@ const officeName = office.name;
 const instagramUrl = office.instagram;
 const whatsappUrl = office.whatsapp;
 const mapsUrl = office.maps;
-const portrait = "/fernando-reis-retrato.webp";
-const officePhoto = "/fernando-reis-atendimento.webp";
+const portrait = "/cunha-lobo-equipe.webp";
+const officePhoto = "/cunha-lobo-equipe.webp";
 
 const reveal: Variants = {
   hidden: { opacity: 0, y: 22 },
@@ -45,23 +47,38 @@ const stagger: Variants = {
 };
 
 const practiceAreas = [
-  { number: "01", title: "Direito Trabalhista", icon: BriefcaseBusiness, lead: "Sua trajetória profissional merece cuidado",
-    areas: ["Análise de contratos e documentos de trabalho", "Orientação sobre verbas rescisórias e jornada", "Acompanhamento de demandas trabalhistas"],
-    summary: "Entenda sua relação de trabalho, esclareça dúvidas e conte com orientação para conduzir cada etapa da sua demanda.",
-    details: "Uma dúvida no trabalho pode afetar seus planos e sua tranquilidade. Na Reis e Borges, o atendimento começa com a escuta do seu relato e a análise dos documentos. A partir daí, apresentamos os caminhos aplicáveis à sua situação, com clareza sobre as próximas etapas." },
-  { number: "02", title: "Direito Cível", icon: Scale, lead: "Atenção às relações que fazem parte da sua vida",
-    areas: ["Análise de contratos e obrigações", "Orientação sobre conflitos e responsabilidade civil", "Acompanhamento de demandas cíveis"],
-    summary: "Apoio jurídico para lidar com contratos, responsabilidades e conflitos cotidianos, com atenção ao que importa para você.",
-    details: "As relações do dia a dia podem trazer questões que precisam de um olhar jurídico cuidadoso. Avaliamos o contexto, os documentos e os interesses envolvidos para explicar as possibilidades de encaminhamento, seja na busca de uma solução consensual ou no acompanhamento de uma demanda." },
+  { number: "01", title: "Suspensão da CNH", icon: CarFront, lead: "Sua mobilidade merece atenção",
+    areas: ["Análise da notificação e do processo", "Orientação sobre documentos e etapas", "Acompanhamento da defesa conforme o caso"],
+    summary: "Recebeu uma notificação de suspensão? Entenda sua situação e os caminhos de defesa a partir de uma análise individual.",
+    details: "A CNH faz parte da rotina e, muitas vezes, do trabalho. Nossa equipe examina a notificação, o histórico e os documentos do processo para explicar as possibilidades de atuação e as próximas etapas. Cada caso recebe uma avaliação própria, com transparência sobre os limites e as alternativas disponíveis." },
+  { number: "02", title: "Multas e infrações", icon: FileText, lead: "Clareza antes de cada decisão",
+    areas: ["Análise de autos de infração", "Avaliação das possibilidades de defesa e recurso", "Orientação e acompanhamento do procedimento"],
+    summary: "Um olhar cuidadoso sobre autos de infração e notificações, para que você compreenda as possibilidades do seu caso.",
+    details: "Uma notificação pode gerar dúvidas sobre o que aconteceu e como proceder. Na Cunha & Lobo, analisamos os documentos apresentados e o contexto da infração. Explicamos de forma acessível se há caminhos de defesa ou recurso e como o atendimento pode ser conduzido, sem promessas de resultado." },
+  { number: "03", title: "Cassação e regularização", icon: ShieldCheck, lead: "Cuidado com a sua habilitação",
+    areas: ["Análise de processos de cassação", "Orientação sobre restrições na habilitação", "Avaliação de questões junto aos órgãos de trânsito"],
+    summary: "Orientação para compreender restrições e processos relacionados à habilitação, com atenção aos documentos e à sua realidade.",
+    details: "Questões relacionadas à cassação ou a restrições na habilitação exigem uma análise cuidadosa. A equipe avalia a situação informada e os documentos disponíveis para esclarecer o cenário, identificar os encaminhamentos pertinentes e orientar você sobre cada etapa do atendimento." },
+  { number: "04", title: "Assessoria em trânsito", icon: Scale, lead: "Orientação para seguir com segurança",
+    areas: ["Esclarecimento de dúvidas sobre CNH e trânsito", "Análise de documentos e notificações", "Atendimento digital em todo o Brasil"],
+    summary: "Converse com a equipe sobre dúvidas envolvendo CNH, notificações e demandas de trânsito, de onde você estiver.",
+    details: "Nem toda dúvida começa com um processo. O atendimento também pode ajudar a compreender documentos e situações ligadas ao trânsito. Você apresenta sua demanda, nossa equipe avalia o contexto e explica as possibilidades de orientação e acompanhamento, com atendimento digital em todo o território nacional." },
 ];
 
 const reviews = [
-  { author: "Eric De Paula", quote: "Pessoal muito profissional e excelente atendimento." },
-  { author: "Kamilla Ribeiro", quote: "Excelente atendimento, são bem atenciosos." },
-  { author: "Breno Amaral", quote: "Atendimento humanizado, toda equipe muito atenciosa, trabalho impecável!" },
-  { author: "Alexandra Ribeiro", quote: "Quero agradecer ao Dr. Fernando Reis pelo excelente atendimento! Foi muito eficiente, ágil e atencioso em todo o processo. Recomendo seus serviços pela competência e profissionalismo." },
-  { author: "Rugieri Gonçalves", quote: "Excelente atendimento, Fernando é muito direto e se comunica de forma clara, o que facilita o entendimento, atencioso, e pró-ativo, recomendo." },
-  { author: "Prime Store", quote: "Atendimento excepcional, desde a recepção até a conversa com o Dr. Fernando, explicações claras e coesas!!" },
+  { author: "Magno Augusto de Aquino", quote: "Excelente e recomendo. São muito atenciosos, transparentes, muito inteligentes e ágeis, enfim nota 10 para todo o processo, desde o primeiro contato." },
+  { author: "José Pedro de Alcantara Neto", quote: "Excelentes profissionais, atenção e clareza desde o primeiro contato. Demonstraram uma experiencia impressionante no trato de processo de suspensão de CNH. Agilidade, transparência e respeito." },
+  { author: "Nara Rubia", quote: "Profissionais incríveis, de uma educação e profissionalismo impar. Com toda certeza indicaria e voltaria a contratar os serviços de um escritório tão sério e competente." },
+  { author: "Ludmila", quote: "Solicitei atendimento para tirar dúvidas quanto a suspensão de CNH, me atenderam muito rápido, tiraram todas as dúvidas e ainda nos orientaram." },
+  { author: "Ezequiel Venâncio", quote: "Atendimento excelente...super recomendo..." },
+  { author: "Juliano Frederico", quote: "Muito satisfatório, receber suas orientações super indico e que Deus abençoe sempre vc ou vcs" },
+];
+
+const questions = [
+  { title: "Posso ser atendido de outro estado?", answer: "Sim. O escritório atende de forma digital em todo o território nacional. A conversa inicial e o compartilhamento dos documentos podem ser feitos a distância, com orientação da equipe." },
+  { title: "Como começo o atendimento?", answer: "Entre em contato pelo WhatsApp e conte brevemente sua situação. Se houver uma notificação ou documento relacionado ao caso, informe à equipe para receber orientação sobre o que encaminhar." },
+  { title: "Meu caso pode ser resolvido?", answer: "As possibilidades dependem da análise dos documentos e das circunstâncias de cada situação. A equipe explica os caminhos disponíveis e os limites da atuação. Não há garantia de resultado." },
+  { title: "Onde fica o escritório?", answer: "Na Rua Tavares de Melo, 139, sala 04, Centro, Conselheiro Lafaiete, Minas Gerais. Para atendimento presencial, entre em contato e agende sua visita." },
 ];
 
 const navigation = [
@@ -72,8 +89,8 @@ const navigation = [
   ["Contato", "#contato"],
 ];
 
-function BrandMark() {
-  return <Image src={logo} alt="Reis e Borges Advocacia"  sizes="(max-width: 640px) 210px, 260px" className="h-auto w-[210px] sm:w-[260px]" />;
+function BrandMark({ compact = false }: { compact?: boolean }) {
+  return <Image src={logo} alt="Cunha & Lobo Advocacia e Assessoria Jurídica" sizes={compact ? "(max-width: 640px) 180px, 210px" : "(max-width: 640px) 200px, 240px"} className={compact ? "h-auto w-[180px] sm:w-[210px]" : "h-auto w-[200px] sm:w-[240px]"} />;
 }
 
 function InstagramMark({ size = 16 }: { size?: number }) {
@@ -180,14 +197,14 @@ export default function Home() {
         </a>
 
         <header className="sticky top-0 z-40 border-b border-white/10 bg-night/95 text-white backdrop-blur-xl">
-          <div className="mx-auto flex h-[78px] max-w-7xl items-center justify-between gap-5 px-5 sm:h-[88px] sm:px-8 lg:px-12">
+          <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between gap-5 px-5 sm:h-[76px] sm:px-8 lg:px-12">
             <a
               href="#inicio"
               aria-label={`${officeName} — início`}
               onClick={closeMenu}
               className="shrink-0"
             >
-              <BrandMark />
+              <BrandMark compact />
             </a>
 
             <nav
@@ -275,22 +292,22 @@ export default function Home() {
                 className="relative z-10 max-w-2xl lg:py-6"
               >
                 <motion.p variants={reveal} className="eyebrow-light mb-7">
-                  REIS E BORGES · ADVOGADOS ASSOCIADOS
+                  CUNHA & LOBO · ADVOCACIA
                 </motion.p>
                 <motion.h1
                   variants={reveal}
                   className="max-w-[730px] font-serif text-[2.85rem] leading-[1.02] tracking-[-0.045em] text-white sm:text-6xl lg:text-[4.6rem]"
                 >
-                  Clareza para decidir.<br />Compromisso para{" "}
+                  Seu direito de ir além.<br />Nossa dedicação em{" "}
                   <em className="font-normal text-brand-300">defender.</em>
                 </motion.h1>
                 <motion.p
                   variants={reveal}
                   className="mt-7 max-w-xl text-[15px] leading-7 text-white/70 sm:text-base sm:leading-8"
                 >
-                  Direito Trabalhista e Cível. Uma advocacia próxima,
-                  que escuta sua história e orienta cada passo com clareza.
-                  Em Araxá e região, com atenção a cada detalhe do seu caso.
+                  Direito de Trânsito com atenção à sua história.
+                  Orientação clara e acompanhamento próximo para cuidar
+                  da sua habilitação, com atendimento digital em todo o Brasil.
                 </motion.p>
                 <motion.div
                   variants={reveal}
@@ -322,11 +339,11 @@ export default function Home() {
                 >
                   <span className="inline-flex items-center gap-2">
                     <MapPin size={15} className="text-brand-300" />
-                    Araxá · Minas Gerais
+                    Conselheiro Lafaiete · MG
                   </span>
                   <span className="inline-flex items-center gap-2">
                     <Scale size={15} className="text-brand-300" />
-                    Araxá e região
+                    Atendimento em todo o Brasil
                   </span>
                 </motion.div>
               </motion.div>
@@ -342,21 +359,21 @@ export default function Home() {
                 className="relative mx-auto w-full max-w-[490px] lg:ml-auto lg:mr-2"
               >
                 <div className="absolute -inset-3 -rotate-2 border border-brand-300/35 sm:-inset-4" />
-                <div className="relative aspect-[0.84] overflow-hidden bg-[#14171b]">
+                <div className="relative aspect-[4/5] overflow-hidden bg-night">
                   <Image
                     src={portrait}
-                    alt="Dr. Fernando Reis, da Reis e Borges Advogados"
+                    alt="Victor Lobo e Eduarda Cunha, sócios da Cunha & Lobo Advocacia"
                     fill
                     sizes="(max-width: 640px) 90vw, (max-width: 1024px) 70vw, 42vw"
-                    className="hero-portrait object-cover object-right-top"
+                    className="object-cover object-top"
                     preload
                   />
                   <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-night/90 to-transparent" />
                   <figcaption className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-3 text-white sm:bottom-8 sm:left-8 sm:right-8">
                     <div>
-                      <p className="font-serif text-2xl">Reis e Borges</p>
+                      <p className="font-serif text-2xl">Cunha & Lobo</p>
                       <p className="mt-1 text-[10px] uppercase tracking-[0.17em] text-white/70">
-                        Advocacia · Araxá, MG
+                        Atuação em todo o Brasil
                       </p>
                     </div>
                     <span className="grid size-11 shrink-0 place-items-center rounded-full border border-brand-200/70 text-brand-200">
@@ -377,9 +394,9 @@ export default function Home() {
           >
             <div className="mx-auto grid max-w-7xl gap-6 px-5 py-7 sm:grid-cols-3 sm:gap-4 sm:px-8 lg:px-12">
               {[
-                ["Araxá, MG", "nossa sede"],
-                ["Trabalhista & Cível", "nossas áreas de atuação"],
-                ["Escuta & clareza", "em cada etapa"],
+                [office.clients, "clientes em todo o Brasil"],
+                ["Todo o Brasil", "atendimento digital"],
+                [`${office.rating} / 5`, "avaliação no Google"],
               ].map(([value, label], index) => (
                 <div
                   key={value}
@@ -414,9 +431,9 @@ export default function Home() {
               >
                 <Heading
                   eyebrow="ÁREAS DE ATUAÇÃO"
-                  description="Do trabalho às relações do dia a dia, orientação para compreender seus direitos e decidir com segurança."
+                  description="Da primeira notificação às próximas etapas, orientação para compreender sua situação e as possibilidades de atuação."
                 >
-                  Seus direitos, vistos de perto.
+                  Direito de Trânsito.<br /><em className="font-normal text-brand-700">Atenção a cada caminho.</em>
                 </Heading>
                 <span className="hidden h-px w-28 bg-brand-500/60 md:mb-3 md:block" />
               </motion.div>
@@ -472,15 +489,25 @@ export default function Home() {
 
           <section id="equipe" className="scroll-mt-24 bg-white py-20 sm:py-28 lg:py-32">
             <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-12">
-              <motion.figure initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={reveal} className="relative">
-                <div className="relative aspect-[4/5] overflow-hidden bg-ivory">
-                  <Image src="/fernando-reis-mensagem.webp" alt="Dr. Fernando Reis. Advogar é olhar adiante por quem, naquele momento, não consegue." fill sizes="(max-width: 1024px) 90vw, 45vw" className="object-cover" />
-                </div>
-                <figcaption className="border-b border-brand-300 py-5 font-serif text-2xl">Fernando Reis <span className="text-brand-700">/</span> Advogado</figcaption>
-              </motion.figure>
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={stagger} className="grid grid-cols-2 gap-4 sm:gap-5">
+                {[
+                  { name: "Eduarda Cunha", role: "Sócia · Advogada", photo: "/eduarda-retrato.webp" },
+                  { name: "Victor Lobo", role: "Sócio · Advogado", photo: "/vitor-retrato.webp" },
+                ].map((person, index) => (
+                  <motion.figure key={person.name} variants={reveal} className={index === 1 ? "mt-12" : ""}>
+                    <div className="relative aspect-[3/4] overflow-hidden bg-night">
+                      <Image src={person.photo} alt={`${person.name}, ${person.role.toLowerCase()} da Cunha & Lobo Advocacia`} fill sizes="(max-width: 640px) 43vw, (max-width: 1024px) 40vw, 22vw" className="object-cover object-top" />
+                    </div>
+                    <figcaption className="border-b border-brand-300 py-4">
+                      <p className="font-serif text-xl sm:text-2xl">{person.name}</p>
+                      <p className="mt-1 text-[9px] uppercase tracking-[0.12em] text-brand-700 sm:text-[10px]">{person.role}</p>
+                    </figcaption>
+                  </motion.figure>
+                ))}
+              </motion.div>
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={reveal}>
                 <Heading eyebrow="QUEM ESTÁ AO SEU LADO" description="Uma orientação jurídica começa por entender quem está do outro lado da conversa.">Proximidade para ouvir.<br /><em className="font-normal text-brand-700">Clareza para orientar.</em></Heading>
-                <p className="mt-6 text-[15px] leading-8 text-ink-soft">Dr. Fernando Reis acredita em uma advocacia que aproxima: ouvir com atenção, explicar com clareza e acompanhar com responsabilidade. Na Reis e Borges, a análise técnica caminha com uma escuta atenta, para que você compreenda sua situação e participe das decisões sobre o seu caso.</p>
+                <p className="mt-6 text-[15px] leading-8 text-ink-soft">Eduarda Cunha e Victor Lobo estão à frente de uma advocacia que valoriza a escuta, a análise cuidadosa e a comunicação direta. Na Cunha & Lobo, você encontra orientação para compreender sua situação e participar das decisões sobre o seu caso, mesmo a distância.</p>
                 <div className="mt-9 space-y-5 border-t border-ink/10 pt-7">
                   {["Atenção à sua história e às suas necessidades", "Orientação em uma linguagem que você entende", "Presença e cuidado ao longo do atendimento"].map((item) => <p key={item} className="flex items-start gap-3 text-sm leading-6"><span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-500" />{item}</p>)}
                 </div>
@@ -491,7 +518,7 @@ export default function Home() {
 
           <section
             id="escritorio"
-            className="scroll-mt-24 bg-[#eeeae2] py-20 sm:py-28 lg:py-32"
+            className="scroll-mt-24 bg-brand-100/40 py-20 sm:py-28 lg:py-32"
           >
             <div className="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:px-12">
               <motion.figure
@@ -501,10 +528,10 @@ export default function Home() {
                 variants={reveal}
                 className="relative mx-auto w-full max-w-[570px]"
               >
-                <div className="relative aspect-[0.95] overflow-hidden bg-[#14171b]">
+                <div className="relative aspect-[0.95] overflow-hidden bg-night">
                   <Image
                     src={officePhoto}
-                    alt="Dr. Fernando Reis durante uma conversa no escritório"
+                    alt="Victor Lobo e Eduarda Cunha em retrato no escritório"
                     fill
                     sizes="(max-width: 1024px) 90vw, 46vw"
                     className="object-cover object-[50%_48%]"
@@ -513,10 +540,10 @@ export default function Home() {
                 </div>
                 <figcaption className="absolute -bottom-5 left-5 border-l-2 border-brand-600 bg-white px-5 py-4 shadow-card sm:-left-6 sm:px-7">
                   <p className="font-serif text-xl text-ink">
-                    Araxá, Minas Gerais
+                    Conselheiro Lafaiete, MG
                   </p>
                   <p className="mt-1 text-[11px] leading-5 text-ink-soft">
-                    Reis e Borges Advocacia
+                    Cunha & Lobo Advocacia
                   </p>
                 </figcaption>
                 <span className="absolute -right-3 -top-3 -z-10 size-20 border-r border-t border-brand-600/45 sm:-right-6 sm:-top-6 sm:size-28" />
@@ -535,23 +562,23 @@ export default function Home() {
                   variants={reveal}
                   className="mt-4 max-w-2xl font-serif text-4xl leading-[1.07] tracking-[-0.035em] text-ink sm:text-5xl lg:text-[3.55rem]"
                 >
-                  Em Araxá, perto de você.
+                  De Minas Gerais,<br />para todo o Brasil.
                 </motion.h2>
                 <motion.p
                   variants={reveal}
                   className="mt-6 max-w-xl text-[15px] leading-7 text-ink-soft"
                 >
-                  Na Reis e Borges, o atendimento começa pela escuta. Antes de falar
-                  sobre caminhos jurídicos, queremos entender sua história,
-                  suas dúvidas e o que é importante para você.
+                  Nossa sede está em Conselheiro Lafaiete, mas a proximidade
+                  vai além de um endereço. Pelo atendimento digital,
+                  acolhemos demandas de clientes de todo o Brasil.
                 </motion.p>
                 <motion.p
                   variants={reveal}
                   className="mt-4 max-w-xl text-[15px] leading-7 text-ink-soft"
                 >
-                  Com sede no Centro de Araxá e atuação na região,
-                  unimos proximidade e orientação clara nas áreas Trabalhista
-                  e Cível. Entre em contato para agendar uma conversa.
+                  Documentos, dúvidas e orientações podem ser compartilhados
+                  de forma digital, com cuidado e comunicação direta.
+                  Para atendimento na sede, converse com nossa equipe e agende sua visita.
                 </motion.p>
                 <motion.a
                   variants={reveal}
@@ -578,7 +605,7 @@ export default function Home() {
               <div className="flex flex-col gap-7 border-b border-ink/10 pb-8 sm:flex-row sm:items-end sm:justify-between">
                 <Heading
                   eyebrow="AVALIAÇÕES PÚBLICAS"
-                  description="Relatos compartilhados por quem foi atendido pela equipe. Avaliações do Google reunidas no material do escritório."
+                  description="Escuta, clareza e atenção nas palavras de quem conhece nosso atendimento. Uma seleção de relatos públicos no Google."
                 >
                   A experiência no atendimento.
                 </Heading>
@@ -596,7 +623,8 @@ export default function Home() {
                 </a>
               </div>
 
-              <div className="mt-8 flex flex-wrap items-center gap-4"><span className="font-serif text-4xl text-ink">4,9</span><span className="flex gap-1 text-brand-700" aria-label="Nota 4,9 de 5">{[1,2,3,4,5].map((star) => <Star key={star} size={16} fill="currentColor" />)}</span><p className="text-xs text-ink-soft">145 avaliações no Google · conforme dados fornecidos</p></div>
+              <div className="mt-8 flex flex-wrap items-center gap-4"><span className="font-serif text-4xl text-ink">{office.rating}</span><span className="flex gap-1 text-brand-700" aria-label="Nota 4,9 de 5">{[1,2,3,4,5].map((star) => <Star key={star} size={16} fill="currentColor" />)}</span><p className="text-xs text-ink-soft">{office.reviewCount} avaliações no Google</p></div>
+              <p className="mt-3 text-[11px] leading-5 text-ink-soft">Nota e quantidade de avaliações do perfil compartilhado pelo escritório. Consulte o Google para os dados atuais.</p>
               <motion.div
                 initial="hidden"
                 whileInView="visible"
@@ -608,7 +636,7 @@ export default function Home() {
                   <motion.figure
                     key={author}
                     variants={reveal}
-                    className="group flex min-h-[220px] flex-col border border-ink/10 bg-[#faf9f6] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/55 hover:bg-white hover:shadow-card sm:p-7"
+                    className="group flex min-h-[220px] flex-col border border-ink/10 bg-brand-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-brand-500/55 hover:bg-white hover:shadow-card sm:p-7"
                   >
                     <span
                       aria-hidden="true"
@@ -625,12 +653,46 @@ export default function Home() {
                         {author}
                       </span>
                       <span className="mt-1 block pl-8 text-[9px] font-semibold uppercase tracking-[0.15em] text-ink-soft">
-                        Trecho de avaliação no Google
+                        Trecho de avaliação pública
                       </span>
                     </figcaption>
                   </motion.figure>
                 ))}
               </motion.div>
+            </div>
+          </section>
+
+          <section id="atendimento" className="scroll-mt-24 border-t border-ink/10 bg-ivory py-20 sm:py-24">
+            <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={reveal}>
+                <Heading eyebrow="COMO FUNCIONA" description="Um atendimento pensado para tornar cada etapa mais clara, de onde você estiver.">Uma conversa.<br /><em className="font-normal text-brand-700">Um caminho bem orientado.</em></Heading>
+              </motion.div>
+              <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.15 }} variants={stagger} className="mt-12 grid gap-8 sm:grid-cols-3">
+                {[
+                  ["01", "Conte sua história", "Entre em contato pelo WhatsApp e apresente sua dúvida ou a situação que precisa de atenção."],
+                  ["02", "Entenda as possibilidades", "A equipe avalia os documentos e explica os caminhos e as condições do atendimento."],
+                  ["03", "Acompanhe cada etapa", "Com a atuação definida, você recebe orientação sobre os próximos passos do seu caso."],
+                ].map(([number, title, description]) => (
+                  <motion.div key={number} variants={reveal} className="border-t border-brand-300 pt-6">
+                    <p className="font-serif text-3xl text-brand-700">{number}</p>
+                    <h3 className="mt-4 font-serif text-2xl">{title}</h3>
+                    <p className="mt-3 text-[13px] leading-7 text-ink-soft">{description}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+              <div className="mt-20 grid gap-9 border-t border-ink/10 pt-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-20">
+                <Heading eyebrow="DÚVIDAS FREQUENTES">Antes da<br /><em className="font-normal text-brand-700">primeira conversa.</em></Heading>
+                <div>
+                  {questions.map(({ title, answer }) => (
+                    <details key={title} className="faq-item group border-b border-ink/15">
+                      <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-5 text-sm font-medium">
+                        {title}<span aria-hidden="true" className="text-xl text-brand-700 group-open:hidden">+</span><span aria-hidden="true" className="hidden text-xl text-brand-700 group-open:block">−</span>
+                      </summary>
+                      <p className="max-w-xl pb-6 text-[13px] leading-7 text-ink-soft">{answer}</p>
+                    </details>
+                  ))}
+                </div>
+              </div>
             </div>
           </section>
 
@@ -643,7 +705,7 @@ export default function Home() {
                 <Heading
                   eyebrow="CONTATO E LOCALIZAÇÃO"
                   light
-                  description="Conte com uma escuta atenta. Fale com a equipe para combinar seu atendimento, em Araxá e região."
+                  description="Conte sua situação à nossa equipe e saiba como podemos orientar você. Atendimento digital em todo o Brasil e presencial mediante agendamento."
                 >
                   Seu próximo passo começa com uma conversa.
                 </Heading>
@@ -657,8 +719,8 @@ export default function Home() {
                     <MessageCircle size={17} /> Conversar pelo WhatsApp
                     <ArrowUpRight size={14} />
                   </a>
-                  <a href={office.telephone} className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><Phone size={17} /> (34) 98888-3335</a>
-                  <a href={instagramUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><InstagramMark size={17} /> @reiseborges.advogados <ArrowUpRight size={14} /></a>
+                  <a href={office.telephone} className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><Phone size={17} /> {office.phoneDisplay}</a>
+                  <a href={instagramUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 py-2 text-sm text-white/80 hover:text-brand-200"><InstagramMark size={17} /> {office.instagramHandle} <ArrowUpRight size={14} /></a>
                 </div>
               </div>
 
@@ -673,21 +735,21 @@ export default function Home() {
                       Endereço
                     </p>
                     <p className="mt-1 font-serif text-2xl text-white">
-                      Araxá · MG
+                      Conselheiro Lafaiete · MG
                     </p>
                   </div>
                 </div>
                 <address className="mt-7 max-w-md not-italic text-[14px] leading-7 text-white/70">
-                  Rua Alexandre Gondim, 67
+                  Rua Tavares de Melo, 139, sala 04
                   <br />
                   Centro
                   <br />
-                  Araxá · MG · CEP 38183-100
+                  Conselheiro Lafaiete · MG · CEP 36400-059
                 </address>
                 <div className="my-7 h-px bg-white/15" />
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <p className="text-xs text-white/60">
-                    Reis e Borges Advocacia
+                    Cunha & Lobo Advocacia
                   </p>
                   <a
                     href={mapsUrl}
@@ -703,7 +765,7 @@ export default function Home() {
           </section>
         </div>
 
-        <footer className="bg-[#090b0d] px-5 py-12 text-white sm:px-8 lg:px-12">
+        <footer className="bg-brand-950 px-5 py-12 text-white sm:px-8 lg:px-12">
           <div className="mx-auto grid max-w-7xl gap-10 sm:grid-cols-2 lg:grid-cols-[1.1fr_0.9fr_1fr]">
             <div>
               <a
@@ -714,8 +776,8 @@ export default function Home() {
                 <BrandMark />
               </a>
               <p className="mt-4 max-w-xs text-xs leading-6 text-white/55">
-                Direito Trabalhista e Cível.
-                Atendimento em Araxá, Minas Gerais, e região.
+                Advocacia e assessoria jurídica em Direito de Trânsito.
+                De Conselheiro Lafaiete para todo o Brasil.
               </p>
             </div>
             <div>
@@ -753,15 +815,15 @@ export default function Home() {
                 >
                   <MessageCircle size={14} /> WhatsApp
                 </a>
-                <a href={instagramUrl} target="_blank" rel="noreferrer" className="footer-link inline-flex items-center gap-2"><InstagramMark size={14} /> @reiseborges.advogados</a>
-                <a href="tel:+5534988883335" className="footer-link inline-flex items-center gap-2"><Phone size={14} /> (34) 98888-3335</a>
+                <a href={instagramUrl} target="_blank" rel="noreferrer" className="footer-link inline-flex items-center gap-2"><InstagramMark size={14} /> {office.instagramHandle}</a>
+                <a href={office.telephone} className="footer-link inline-flex items-center gap-2"><Phone size={14} /> {office.phoneDisplay}</a>
                 <a
                   href={mapsUrl}
                   target="_blank"
                   rel="noreferrer"
                   className="footer-link inline-flex items-start gap-2"
                 >
-                  <MapPin size={14} className="mt-0.5 shrink-0" /> Araxá · MG
+                  <MapPin size={14} className="mt-0.5 shrink-0" /> Conselheiro Lafaiete · MG
                 </a>
               </div>
             </div>
